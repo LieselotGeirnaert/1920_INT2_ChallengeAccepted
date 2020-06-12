@@ -12,17 +12,17 @@
 <body>
   <div class="container">
     <header class="header">
-      <a href="index.php">
+      <a href="index.php" class="nav__link">
        <h1 class="header__title">HotelHinder</h1>
       </a>
 
       <nav class="nav">
         <ul class="nav__items">
-          <li class="nav__item"><a class="nav__link" href="index.php">Home</a></li>
-          <li class="nav__item"><a class="nav__link" href="index.php?page=hoehinderen">Hoe hinderen</a></li>
-          <li class="nav__item"><a class="nav__link" href="index.php?page=hinderoverzicht">Hinderoverzicht</a></li>
-          <li class="nav__item"><a class="nav__link" href="index.php?page=profiel">Profiel</a></li>
-          <li class="nav__item"><a class="nav__link" href="index.php?page=hinderen">Begin met hinderen</a></li>
+          <li class="nav__item"><a class="nav__link <?php if ($_GET['page'] === 'home'){ echo ' nav__link--active'; }?>" href="index.php">Home</a></li>
+          <li class="nav__item"><a class="nav__link <?php if ($_GET['page'] === 'hoehinderen'){ echo ' nav__link--active'; }?>" href="index.php?page=hoehinderen">Hoe hinderen</a></li>
+          <li class="nav__item"><a class="nav__link <?php if ($_GET['page'] === 'hinderoverzicht'){ echo ' nav__link--active'; }?>" href="index.php?page=hinderoverzicht">Hinderoverzicht</a></li>
+          <li class="nav__item"><a class="nav__link <?php if ($_GET['page'] === 'profiel'){ echo ' nav__link--active'; }?>" href="index.php?page=profiel">Profiel</a></li>
+          <li class="nav__item"><a class="nav__link <?php if ($_GET['page'] === 'hinderen'){ echo ' nav__link--active'; }?>" href="index.php?page=hinderen">Begin met hinderen</a></li>
         </ul>
       </nav>
 

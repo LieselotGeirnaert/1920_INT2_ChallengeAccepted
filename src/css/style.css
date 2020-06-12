@@ -1,0 +1,8 @@
+/* General styles */
+@import "reset.css";
+@import "vars.css";
+@import "base.css";
+
+/* Componenets */
+@import "home.css";
+
