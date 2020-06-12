@@ -1,5 +1,16 @@
+@import "reset.css";
+@import "home.css";
+
+
 *, *::before, *::after{
   box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "TrashHand";
+  src: url("../assets/fonts/TrashHand.woff2") format("woff2"),
+    url("../assets/fonts/TrashHand.woff") format("woff");
+  font-style: normal;
 }
 
 html {
@@ -43,22 +54,13 @@ main{
   border-color: #00cc00
 }
 
+/* 
 .container{
   width: 96rem;
   margin: 0 auto;
 }
 
-.header{
-  background-color: #eee;
-}
 
-.header__title{
-  background-image: url("../assets/img/logo.png");
-  background-repeat: no-repeat;
-  height: 21.3rem;
-  width: 44.2rem;
-  margin: 0 auto;
-}
 
 .filter{
   background-color: #01743e;
@@ -190,4 +192,4 @@ main{
   font-weight: bold;
   text-align: center;
   color: #01743e;
-}
+} */ */

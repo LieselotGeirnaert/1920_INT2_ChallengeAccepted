@@ -22,12 +22,16 @@ if (file_exists(".env")) {
 // set routes
 $routes = array(
   'home' => array(
-    'controller' => 'Episodes',
-    'action' => 'index'
+    'controller' => 'Pages',
+    'action' => 'home'
   ),
-  'detail' => array(
-    'controller' => 'Episodes',
-    'action' => 'detail'
+  'hoehinderen' => array(
+    'controller' => 'Pages',
+    'action' => 'hoehinderen'
+  ),
+  'hinderoverzicht' => array(
+    'controller' => 'Pages',
+    'action' => 'hinderoverzicht'
   )
 );
 
