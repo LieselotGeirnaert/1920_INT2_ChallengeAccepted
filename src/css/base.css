@@ -15,9 +15,12 @@ html {
 }
 
 body {
+  color: var(--textColor);
   background-image: url(../assets/img/texture-bg.png);
-  font-family: Helvetica, Arial, sans-serif;
-  font-size: 1.4rem;
+  font-family: futura-pt, sans-serif;
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 500;
   line-height: 1.3;
 }
 
@@ -52,19 +55,20 @@ main {
 }
 
 
-
+/* header */
 .header {
   align-items: center;
   background-image: url(../assets/img/texture-bg.png);
   box-shadow: 0rem 0.3rem 1.5rem var(--shadowColor);
   display: flex;
   justify-content: space-between;
+  padding: 0 5rem;
 }
 
 .header__title {
   color: var(--yellowColor);
   font-family: "TrashHand", Helvetica, Arial, sans-serif;
-  font-size: 6rem;
+  font-size: 4rem;
   text-decoration: none;
   transform: rotate(-5deg);
 }
@@ -72,25 +76,63 @@ main {
 .nav__items {
   display: flex;
   font-family: "TrashHand", Helvetica, Arial, sans-serif;
-  font-size: 3.5rem;
+  font-size: 3rem;
   justify-content: space-between;
 }
 
 .nav__link {
   color: var(--blueColor);
-  padding: 2rem;
+  padding: 1.5rem 3rem;
   text-decoration: none;
 }
 
-.nav__link.nav__link--active {
+.nav__link--active {
   background-image: url(../assets/img/active.png);
   background-position: center;
   background-repeat: no-repeat;
 }
-/* .nav__link:hover {
-  backgroun
-} */
 
+.nav__link:hover {
+  background-image: url(../assets/img/active.png);
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* titles */
+.subtitle {
+  color: var(--redColor);
+  font-family: futura-pt, sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
+  padding-bottom: 2rem;
+  text-transform: uppercase;
+}
+
+/* buttons */
 .btn {
+  background-color: inherit;
   background-image: url(../assets/img/btn-blue.png);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: none;
+  color: var(--whiteColor);
+  cursor: pointer;
+  display: block;
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin: 2rem auto;
+  padding: 5rem 6rem;
+  text-align: center;
+  text-decoration: none;
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.btn:hover {
+  background-image:  url(../assets/img/active.png), url(../assets/img/btn-blue.png);
+  background-position: center;
+  background-size: 50%, cover;
 }
