@@ -21,7 +21,7 @@
           <li class="nav__item"><a class="nav__link <?php if ($_GET['page'] === 'hoehinderen'){ echo ' nav__link--active'; }?>" href="index.php?page=hoehinderen">Hoe hinderen</a></li>
           <li class="nav__item"><a class="nav__link <?php if ($_GET['page'] === 'hinderoverzicht'){ echo ' nav__link--active'; }?>" href="index.php?page=hinderoverzicht">Hinderoverzicht</a></li>
           <li class="nav__item"><a class="nav__link <?php if ($_GET['page'] === 'profiel'){ echo ' nav__link--active'; }?>" href="index.php?page=profiel">Profiel</a></li>
-          <li class="nav__item"><a class="nav__link <?php if ($_GET['page'] === 'hinderen'){ echo ' nav__link--active'; }?>" href="index.php?page=hinderen">Begin met hinderen</a></li>
+          <li class="nav__item"><a class="nav__link <?php if ($_GET['page'] === 'hindersituaties'){ echo ' nav__link--active'; }?>" href="index.php?page=hindersituaties">Begin met hinderen</a></li>
         </ul>
       </nav>
 

@@ -1,16 +1,14 @@
 <?php
 
 require_once __DIR__ . '/Controller.php';
-
-// require_once __DIR__ . '/../dao/ActivityDAO.php';
-// require_once __DIR__ . '/../dao/OrderDAO.php';
+require_once __DIR__ . '/../dao/HinderDAO.php';
+require_once __DIR__ . '/../dao/EpisodeDAO.php';
 
 
 class PagesController extends Controller {
 
   function __construct() {
-    // $this->activityDAO = new ActivityDAO();
-    // $this->orderDAO = new OrderDAO();
+    $this->hinderDAO = new HinderDAO();
   }
 
   public function home () {
@@ -33,8 +31,11 @@ class PagesController extends Controller {
     $this->set('title', 'Profiel');
   }
 
-  public function hinderen () {
+  public function hindersituaties () {
+    $situations = $this->hinderDAO->selectAllSituations();
+    $this->set('situations', $situations);
     $this->set('title', 'Begin met hinderen');
+
   }
 
   public function maakervaring () {

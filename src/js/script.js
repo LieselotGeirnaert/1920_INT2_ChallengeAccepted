@@ -1,52 +1,52 @@
 {
-  const showFact = async () => {
-    const year = document.querySelector(`.date`).textContent.split(` `)[2];
+  let situationIndex = 1;
 
-    const response = await fetch(`./assets/data/nice-to-know.json`);
-    const facts = await response.json();
-    const fact = facts.filter(fact => fact.year == year)[0].fact;
+  const changeSituation = index => {
+    showSituation(situationIndex += index);
+    console.log(situationIndex);
+  } 
 
-    document.querySelector(`.fact`).textContent = fact;
+  const currentSituation = index => {
+    showSituation(situationIndex = index);
   }
 
-  const handleChangeFilter = e => {
-    const season = e.currentTarget.value;
-    const path = window.location.href.split(`?`)[0];
-    const qs = `?season=${season}`;
-    getEpisodes(`${path}${qs}`);
-  };
+  const showSituation = index => {
+    const $situations = document.querySelectorAll('.situation');
+    const $sliderDots = document.querySelectorAll('.slider__dot');
 
-  const getEpisodes = async url => {
-    const response = await fetch(url, {
-      headers: new Headers({
-        Accept: 'application/json'
-      })
-    });
-    const episodes = await response.json();
-    window.history.pushState({},``, url);
-    showEpisodes(episodes);
-  };
 
-  const showEpisodes = episodes => {
-    const $parent = document.querySelector(`.episodes`);
-    $parent.innerHTML = ``;
-    episodes.forEach(episode => {
-      $parent.innerHTML += `<li class="episodes__episode"><a href="index.php?page=detail&id=${episode.id}">${episode.title}</a></li>`;
-    });
+    if (index > $situations.length) { situationIndex = 1 }
+    if (index < 1) { situationIndex = $situations.length }
+
+    for (let i = 0; i < $situations.length; i++) {
+      $situations[i].style.display = 'none';
+    }
+    for (let i = 0; i < $sliderDots.length; i++) {
+      $sliderDots[i].classList.remove('slider__dot--active');
+    }
+
+    $situations[situationIndex - 1].style.display = 'flex';
+    $sliderDots[situationIndex - 1].classList.add('slider__dot--active');
+
   }
+
 
   const init = () => {
     document.documentElement.classList.add('has-js');
 
-    const $season = document.querySelector(`.filter-season`);
-    if($season){
-      $season.addEventListener(`change`,handleChangeFilter);
-    }
+    const $sliderNext = document.querySelector('.slider__control--next');
+    const $sliderPrev = document.querySelector('.slider__control--prev');
 
-    const $date = document.querySelector(`.date`);
-    if($date){
-      showFact();
+    const $sliderDots = document.querySelectorAll('.slider__dot');
+    console.log($sliderDots);
+    for (let i = 0; i < $sliderDots.length; i++) {
+      $sliderDots[i].addEventListener('click', () => {currentSituation(i + 1)});
     }
+   
+    $sliderNext.addEventListener('click', () => {changeSituation(1)});
+    $sliderPrev.addEventListener('click', () => {changeSituation(-1) });
+    
+    showSituation(situationIndex);
   };
 
   init();

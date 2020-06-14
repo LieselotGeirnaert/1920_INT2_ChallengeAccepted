@@ -113,7 +113,7 @@ main {
   background-color: inherit;
   background-image: url(../assets/img/btn-blue.png);
   background-position: center;
-  background-size: cover;
+  background-size: contain;
   background-repeat: no-repeat;
   border: none;
   color: var(--whiteColor);
@@ -134,5 +134,5 @@ main {
 .btn:hover {
   background-image:  url(../assets/img/active.png), url(../assets/img/btn-blue.png);
   background-position: center;
-  background-size: 50%, cover;
+  background-size: 50%, contain;
 }

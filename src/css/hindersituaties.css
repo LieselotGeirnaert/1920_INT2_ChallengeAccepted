@@ -1,0 +1,115 @@
+.situations {
+  padding: 8rem 15rem;
+}
+
+.situations__title {
+  color: var(--lightblueColor);
+  font-family: "TrashHand", Helvetica, Arial, sans-serif;
+  font-size: 5rem;
+  padding-bottom: 1.5rem;
+}
+
+.situations__descr {
+  color: var(--textColor);
+  font-family: "TrashHand", Helvetica, Arial, sans-serif;
+  font-size: 5rem;
+  width: 65rem;
+}
+
+.situation {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin: 0rem auto;
+  width: 70vw;
+}
+
+.situation:nth-child(odd) {
+  flex-direction: row;
+}
+
+.situation:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+/* 
+.situation__left {
+  order: 1
+}
+
+.situation__right {
+  order: 2;
+} */
+
+.situation__title {
+  color: var(--lightblueColor);
+  font-family: "TrashHand", Helvetica, Arial, sans-serif;
+  font-size: 5rem;
+  left: 15rem;
+  position: relative;
+  top: 60rem;
+}
+
+.situation__descr {
+  font-size: 2.7rem;
+  padding-bottom: 3rem;
+  width: 45rem;
+}
+
+.situation__img {
+  width: 60rem;
+}
+
+.slider__control {
+  display: none;
+}
+
+.has-js .slider__control {
+  background-image: url(../assets/img/arrow-red.png);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  display: block;
+  height: 7rem;
+  position: absolute;
+  top: 85vh;
+  width: 7rem;
+}
+
+.slider__control--prev {
+  left: 15rem;
+  transform: scaleX(-1);
+}
+
+.slider__control--next {
+  right: 15rem;
+}
+
+.slider__dotcontainer {
+  display: none;
+}
+
+.has-js .slider__dotcontainer {
+  display: block;
+  margin: 10rem auto 3rem;
+  width: 35rem;
+}
+
+.slider__dot {
+  background-image: url(../assets/img/slider-notactive.png);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  display: inline-block;
+  height: 4rem;
+  margin: 1rem;
+  padding: 2rem;
+  width: 4rem;
+}
+
+.slider__dot--active {
+  background-image: url(../assets/img/slider-active.png);
+  width: 6rem;
+}
