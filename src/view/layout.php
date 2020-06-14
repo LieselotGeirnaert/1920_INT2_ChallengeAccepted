@@ -20,23 +20,26 @@
           <li class="nav__item"><a class="nav__link <?php if ($_GET['page'] === 'home'){ echo ' nav__link--active'; }?>" href="index.php">Home</a></li>
           <li class="nav__item"><a class="nav__link <?php if ($_GET['page'] === 'hoehinderen'){ echo ' nav__link--active'; }?>" href="index.php?page=hoehinderen">Hoe hinderen</a></li>
           <li class="nav__item"><a class="nav__link <?php if ($_GET['page'] === 'hinderoverzicht'){ echo ' nav__link--active'; }?>" href="index.php?page=hinderoverzicht">Hinderoverzicht</a></li>
-          <li class="nav__item"><a class="nav__link <?php if ($_GET['page'] === 'profiel'){ echo ' nav__link--active'; }?>" href="index.php?page=profiel">Profiel</a></li>
+          <?php if (empty($_SESSION['user'])): ?>
+            <li class="nav__item"><a class="nav__link <?php if ($_GET['page'] === 'profiel'){ echo ' nav__link--active'; }?>" href="index.php?page=login">Aanmelden</a></li>
+          <?php else: ?>
+            <li class="nav__item"><a class="nav__link <?php if ($_GET['page'] === 'profiel'){ echo ' nav__link--active'; }?>" href="index.php?page=profiel">Profiel</a></li>
+          <?php endif; ?>
           <li class="nav__item"><a class="nav__link <?php if ($_GET['page'] === 'hindersituaties'){ echo ' nav__link--active'; }?>" href="index.php?page=hindersituaties">Begin met hinderen</a></li>
         </ul>
       </nav>
+    </header>
 
-      <?php if (!empty($_SESSION['info'])): ?>
+    <main>
+       <?php if (!empty($_SESSION['info'])): ?>
         <div class="box info"><?php echo $_SESSION['info']; ?></div>
       <?php endif; ?>
       <?php if (!empty($_SESSION['error'])): ?>
         <div class="box error"><?php echo $_SESSION['error']; ?></div>
       <?php endif; ?>
-    </header>
 
-    <main>
       <?php echo $content; ?>
     </main>
-
 
   </div>
   <script src="js/script.js"></script>

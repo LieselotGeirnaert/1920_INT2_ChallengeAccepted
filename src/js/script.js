@@ -38,15 +38,20 @@
     const $sliderPrev = document.querySelector('.slider__control--prev');
 
     const $sliderDots = document.querySelectorAll('.slider__dot');
-    console.log($sliderDots);
-    for (let i = 0; i < $sliderDots.length; i++) {
-      $sliderDots[i].addEventListener('click', () => {currentSituation(i + 1)});
+    if ($sliderDots.length > 0) {
+      for (let i = 0; i < $sliderDots.length; i++) {
+        $sliderDots[i].addEventListener('click', () => { currentSituation(i + 1) });
+      }
+     
+      $sliderNext.addEventListener('click', () => { changeSituation(1) });
+      $sliderPrev.addEventListener('click', () => { changeSituation(-1) });
+     
+      showSituation(situationIndex);
     }
-   
-    $sliderNext.addEventListener('click', () => {changeSituation(1)});
-    $sliderPrev.addEventListener('click', () => {changeSituation(-1) });
     
-    showSituation(situationIndex);
+   
+    
+    
   };
 
   init();

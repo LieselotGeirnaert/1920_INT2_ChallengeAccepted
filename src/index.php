@@ -40,6 +40,22 @@ $routes = array(
   'maakervaring' => array(
     'controller' => 'Pages',
     'action' => 'maakervaring'
+  ),
+  'profiel' => array(
+    'controller' => 'Pages',
+    'action' => 'profiel'
+  ),
+  'login' => array(
+    'controller' => 'Users',
+    'action' => 'login'
+  ),
+  'logout' => array(
+    'controller' => 'Users',
+    'action' => 'logout'
+  ),
+  'registreer' => array(
+    'controller' => 'Users',
+    'action' => 'registreer'
   )
 );
 

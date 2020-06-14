@@ -2,7 +2,6 @@
 
 require_once __DIR__ . '/Controller.php';
 require_once __DIR__ . '/../dao/HinderDAO.php';
-require_once __DIR__ . '/../dao/EpisodeDAO.php';
 
 
 class PagesController extends Controller {
@@ -28,7 +27,11 @@ class PagesController extends Controller {
   }
 
   public function profiel () {
-    $this->set('title', 'Profiel');
+    if (empty($_SESSION['user'])) {
+      header('location:index.php?page=login');
+    } else {
+      $this->set('title', 'Profiel');
+    }
   }
 
   public function hindersituaties () {
@@ -42,3 +45,4 @@ class PagesController extends Controller {
     $this->set('title', 'Maak een hinderervaring');
   }
 }
+

@@ -1,0 +1,66 @@
+.auth {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 7rem auto;
+  width: 35vw;
+}
+
+.auth__subtitle {
+  color: var(--greenColor);
+  font-family: "TrashHand", Helvetica, Arial, sans-serif;
+  font-size: 4rem;
+}
+
+.auth__link {
+  color: var(--textColor);
+}
+
+.auth__form {
+  margin: 2rem auto 0;
+  width: 80%;
+}
+
+.form__row {
+  margin: 2rem 0;
+}
+
+.form__inputcontainer {
+  margin: 2rem 0 4rem;
+}
+
+.form__input {
+  background-color: var(--beigeColor);
+  border: 0.2rem solid var(--textColor);
+  color: var(--textColor);
+  font-family: futura-pt, sans-serif;
+  font-size: 1.8rem;
+  padding: 1.5rem;
+  width: 100%;
+}
+
+::-webkit-input-placeholder { /* Edge */
+  color: var(--textColor);
+  opacity: 0.5;
+}
+
+:-ms-input-placeholder { /* Internet Explorer */
+  color: var(--textColor);
+  opacity: 0.5;
+}
+
+::placeholder {
+  color: var(--textColor);
+  opacity: 0.5;
+}
+
+.form__error {
+  color: var(--redColor);
+  padding: 1rem 0;
+}
+
+.auth .btn {
+  width: 100%;
+}

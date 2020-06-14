@@ -21,7 +21,7 @@
   display: flex;
   justify-content: space-between;
   margin: 0rem auto;
-  width: 70vw;
+  width: 65vw;
 }
 
 .situation:nth-child(odd) {
@@ -31,15 +31,6 @@
 .situation:nth-child(even) {
   flex-direction: row-reverse;
 }
-
-/* 
-.situation__left {
-  order: 1
-}
-
-.situation__right {
-  order: 2;
-} */
 
 .situation__title {
   color: var(--lightblueColor);
