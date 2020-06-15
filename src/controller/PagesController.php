@@ -35,8 +35,10 @@ class PagesController extends Controller {
     if (empty($_SESSION['user'])) {
       header('location:index.php?page=login');
     } else {
-      $user = $this->hinderDAO->selectUserById(1);
-      var_dump($user);
+      $userinfo = $this->hinderDAO->selectUserById(1);
+      $experiences = $this->hinderDAO->selectAllExperiencesForUser(1);
+      $this->set('userinfo', $userinfo);
+      $this->set('experiences', $experiences);
       $this->set('title', 'Profiel');
     }
   }
