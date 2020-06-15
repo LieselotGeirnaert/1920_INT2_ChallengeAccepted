@@ -2,16 +2,16 @@
   <h2 class="overview__subtitle">Ontdek hoe anderen de wereld al een beetje irritanter maakten!</h2>
   
   <div class="overview__experiences">
-    <article class="experience experience--new">
-      <h3 class="experience__title">Deel jouw eigen ervaring</h3>
+    <div class="experience experience--new">
+      <p class="experience__title">Deel jouw eigen ervaring</p>
       <span class="experience__img"></span>
       <div class="experience__stats"></div>
       <a href="index.php?page=hindersituaties" class="experience__link"><span class="hidden">Details</span></a>
-    </article>
+    </div>
     
     <?php foreach ($experiences as $experience): ?>
       <article class="experience">
-        <h3 class="experience__title"><?php echo $experience['situationname']; ?></h3>
+        <h3 class="experience__title"><?php echo $experience['situation_name']; ?></h3>
         <img src="" alt="" class="experience__img">
         <div class="experience__stats">
           <div class="stats__item">
@@ -24,7 +24,7 @@
           </div>
         </div>
         <div class="experience__details">
-          <p class="experience__user"><?php echo $experience['username']; ?></p>
+          <p class="experience__user"><?php echo $experience['user_name']; ?></p>
           <p class="experience__time">2 uur geleden</p>
         </div>
         <a href="index.php?page=hinderervaring&id=<?php echo $experience['id']; ?>" class="experience__link"><span class="hidden">Details</span></a>

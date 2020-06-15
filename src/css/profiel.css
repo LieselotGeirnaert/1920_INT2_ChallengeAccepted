@@ -1,0 +1,32 @@
+.profile {
+  display: flex;
+  flex-direction: column;
+  padding: 5rem 15rem;
+}
+
+.profile__header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header__picture {
+  background-color: var(--whiteColor);
+  box-shadow: 0 1rem 1.5rem var(--shadowColor);
+  height: 40rem;
+  width: 50rem;
+}
+
+.header__info {
+  display: flex;
+  flex-direction: column;
+}
+
+.header__logout {
+  color: var(--textColor);
+  text-decoration: none;
+}
+
+.header__logout::after {
+  content: url(../assets/img/arrow-blue.svg);
+  padding-left: 2rem;
+}
