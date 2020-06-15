@@ -13,6 +13,8 @@ class UsersController extends Controller
   }
 
   public function login() {
+    $this->set('title', 'Aanmelden');
+
     if (!empty($_POST)) {
       $errors = array();
 
@@ -56,6 +58,8 @@ class UsersController extends Controller
   }
 
   public function registreer() {
+    $this->set('title', 'Registreren');
+
     if (!empty($_POST)) {
       $errors = array();
 

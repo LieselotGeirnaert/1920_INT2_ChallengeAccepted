@@ -61,6 +61,6 @@
       </div>
     </div>
 
-    <input type="submit" value="Aanmelden" class="btn">
+    <input type="submit" value="Registreren" class="btn">
   </form>
 </section>

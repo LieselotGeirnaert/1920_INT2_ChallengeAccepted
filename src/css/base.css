@@ -59,7 +59,7 @@ main {
 .header {
   align-items: center;
   background-image: url(../assets/img/texture-bg.png);
-  box-shadow: 0rem 0.3rem 1.5rem var(--shadowColor);
+  box-shadow: 0 0.3rem 1.5rem var(--shadowColor);
   display: flex;
   justify-content: space-between;
   padding: 0 5rem;

@@ -1,5 +1,5 @@
 <section class="auth">
-  <h2 class="auth__subtitle">Log in</h2>
+  <h2 class="auth__subtitle">Aanmelden</h2>
   <a href="index.php?page=registreer" class="auth__link">Ik heb nog geen account</a>
 
   <form method="post" action="index.php?page=login" class="auth__form">
@@ -32,6 +32,6 @@
       </div>
     </div>
   
-    <input class="btn" type="submit" value="Login" />
+    <input class="btn" type="submit" value="Aanmelden" />
   </form>
 </section>

@@ -19,6 +19,11 @@ class PagesController extends Controller {
   }
 
   public function hinderoverzicht () {
+    $situations = $this->hinderDAO->selectAllSituations();
+    $experiences = $this->hinderDAO->selectAllExperiences();
+    // var_dump($experiences);
+    $this->set('situations', $situations);
+    $this->set('experiences', $experiences);
     $this->set('title', 'Hinderoverzicht');
   }
 
@@ -42,7 +47,11 @@ class PagesController extends Controller {
   }
 
   public function maakervaring () {
-    $this->set('title', 'Maak een hinderervaring');
+    if (empty($_SESSION['user'])) {
+      header('location:index.php?page=login');
+    } else {
+      $this->set('title', 'Maak een hinderervaring');
+    }
   }
 }
 

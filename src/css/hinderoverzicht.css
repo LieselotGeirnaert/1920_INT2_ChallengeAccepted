@@ -1,0 +1,140 @@
+.filters {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.filter__select {
+
+}
+
+.overview {
+  padding: 2rem 15rem;
+}
+
+.overview__subtitle {
+  color: var(--yellowColor);
+  font-family: "TrashHand", Helvetica, Arial, sans-serif;
+  font-size: 5rem;
+  padding-bottom: 1.5rem;
+  position: absolute;
+  right: 10rem;
+  text-align: center;
+  top: 15rem;
+  transform: rotate(-3deg);
+  width: 60rem;
+}
+
+.overview__experiences {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  position: absolute;
+  top: 45rem;
+  width: calc(100vw - 30rem);
+}
+
+.experience {
+  background-color: var(--whiteColor);
+  box-shadow: 0 1rem 1.5rem var(--shadowColor);
+  height: 50rem;
+  margin-bottom: 10rem;
+  width: 40rem;
+}
+
+.experience__title {
+  color: var(--greenColor);
+  bottom: 3rem;
+  font-family: "TrashHand", Helvetica, Arial, sans-serif;
+  font-size: 4rem;
+  left: 3rem;
+  position: relative;
+  top: 34rem;
+  transform: rotate(-4deg);
+}
+
+.experience__img {
+  background-color: green;
+  display: block;
+  height: 30rem;
+  margin: 2rem auto;
+  position: relative;
+  top: -5rem;
+  width: 90%;
+}
+
+.experience__stats {
+  align-items: center;
+  background-image: url(../assets/img/btn-red.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  bottom: 45rem;
+  color: var(--beigeColor);
+  display: flex;
+  font-family: "TrashHand", Helvetica, Arial, sans-serif;
+  font-size: 3rem;
+  height: 10rem;
+  justify-content: space-between;
+  left: 20rem;
+  padding: 0 4rem 0 2rem;
+  position: relative;
+  transform: rotate(2deg);
+  width: 20rem;
+}
+
+.stats__item {
+  align-items: center;
+  display: flex;
+}
+
+.stats__icon {
+  padding-right: 1rem;
+}
+
+.experience__link {
+  background-image: url(../assets/img/arrow-yellow.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  bottom: 10rem;
+  display: block;
+  height: 3rem;
+  left: 30rem;
+  position: relative;
+  width: 7rem;
+}
+
+.experience__link:hover {
+  width: 8rem;
+}
+
+.experience__details {
+  bottom: 7rem;
+  left: 3rem;
+  position: relative;
+}
+
+.experience__time {
+  font-size: 1.5rem;
+  font-weight: 400;
+  padding-top: 0.5rem;
+}
+
+.experience--new .experience__title {
+  color: var(--whiteColor);
+  left: 10rem;
+  text-align: center;
+  top: 20rem;
+  width: 30rem;
+  z-index: 2;
+}
+
+.experience--new .experience__stats {
+  bottom: 50rem;
+}
+
+.experience--new .experience__img {
+  background-color: var(--yellowColor);
+  top: -10rem;
+}
