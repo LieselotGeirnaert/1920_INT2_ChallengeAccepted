@@ -33,6 +33,10 @@ $routes = array(
     'controller' => 'Pages',
     'action' => 'hinderoverzicht'
   ),
+  'hinderervaring' => array(
+    'controller' => 'Pages',
+    'action' => 'hinderervaring'
+  ),
   'hindersituaties' => array(
     'controller' => 'Pages',
     'action' => 'hindersituaties'

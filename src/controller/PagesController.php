@@ -21,13 +21,24 @@ class PagesController extends Controller {
   public function hinderoverzicht () {
     $situations = $this->hinderDAO->selectAllSituations();
     $experiences = $this->hinderDAO->selectAllExperiences();
-    // var_dump($experiences);
+
     $this->set('situations', $situations);
     $this->set('experiences', $experiences);
     $this->set('title', 'Hinderoverzicht');
   }
 
-   public function hinderdetail () {
+  public function hinderervaring () {
+    if(!empty($_GET['id'])){
+      $experience = $this->hinderDAO->selectExperienceById($_GET['id']);
+      $reviews = $this->hinderDAO->selectAllReviewsByExperienceId($_GET['id']);
+    }
+    if(empty($experience)){
+      header('Location: index.php?page=hinderoverzicht');
+      exit();
+    }
+
+    $this->set('experience', $experience);
+    $this->set('reviews', $reviews);
     $this->set('title', 'Hinderervaring');
   }
 
@@ -36,7 +47,8 @@ class PagesController extends Controller {
       header('location:index.php?page=login');
     } else {
       $userinfo = $this->hinderDAO->selectUserById(1);
-      $experiences = $this->hinderDAO->selectAllExperiencesForUser(1);
+      $experiences = $this->hinderDAO->selectAllExperiencesByUserId(1);
+      
       $this->set('userinfo', $userinfo);
       $this->set('experiences', $experiences);
       $this->set('title', 'Profiel');

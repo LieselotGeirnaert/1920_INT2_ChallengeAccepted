@@ -1,27 +1,22 @@
 <section class="overview">
   <h2 class="overview__subtitle">Ontdek hoe anderen de wereld al een beetje irritanter maakten!</h2>
   
-  <div class="overview__experiences">
-    <div class="experience experience--new">
+  <div class="experiences-container">
+    <a href="index.php?page=hindersituaties" class="experience experience--new">
       <p class="experience__title">Deel jouw eigen ervaring</p>
       <span class="experience__img"></span>
       <div class="experience__stats"></div>
-      <a href="index.php?page=hindersituaties" class="experience__link"><span class="hidden">Details</span></a>
-    </div>
+      <span class="experience__link"></span>
+    </a>
     
     <?php foreach ($experiences as $experience): ?>
       <article class="experience">
         <h3 class="experience__title"><?php echo $experience['situation_name']; ?></h3>
         <img src="" alt="" class="experience__img">
         <div class="experience__stats">
-          <div class="stats__item">
-            <img src="assets/img/likes-icon.svg" alt="like icon" class="stats__icon">
-            <p><?php echo $experience['likes']; ?></p>
-          </div>
-          <div class="stats__item">
-            <img src="assets/img/reviews-icon.svg" alt="reviews icon" class="stats__icon">
-            <p>3</p>
-          </div>
+          <p class="stats__icon stats__icon--likes"><?php echo $experience['likes']; ?></p>
+          <p class="stats__icon stats__icon--reviews"><?php echo $experience['likes']; ?></p>
+          <p class="stats__icon stats__icon--rating"><?php echo $experience['likes']; ?></p>
         </div>
         <div class="experience__details">
           <p class="experience__user"><?php echo $experience['user_name']; ?></p>

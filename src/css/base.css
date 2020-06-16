@@ -82,20 +82,34 @@ main {
 
 .nav__link {
   color: var(--blueColor);
+  display: inline-block;
   padding: 1.5rem 3rem;
+  position: relative;
   text-decoration: none;
 }
 
-.nav__link--active {
-  background-image: url(../assets/img/active.png);
+.nav__link::after {
+  background-image: url(../assets/img/icon-active.svg);
   background-position: center;
   background-repeat: no-repeat;
+  content: "";
+  display: none;
+  height: 4rem;
+  left: 0;
+  position: absolute;
+  width: 100%;
 }
 
-.nav__link:hover {
-  background-image: url(../assets/img/active.png);
-  background-position: center;
-  background-repeat: no-repeat;
+.nav__link--header::after {
+  bottom: 2rem;
+}
+
+.nav__link--active::after {
+  display: inline-block;
+}
+
+.nav__link:hover::after {
+  display: inline-block;
 }
 
 /* titles */
@@ -132,7 +146,7 @@ main {
 }
 
 .btn:hover {
-  background-image:  url(../assets/img/active.png), url(../assets/img/btn-blue.png);
+  background-image:  url(../assets/img/icon-active.svg), url(../assets/img/btn-blue.png);
   background-position: center;
   background-size: 50%, contain;
 }

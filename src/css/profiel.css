@@ -23,10 +23,17 @@
 
 .header__logout {
   color: var(--textColor);
+  position: relative;
   text-decoration: none;
 }
 
 .header__logout::after {
-  content: url(../assets/img/arrow-blue.svg);
-  padding-left: 2rem;
+  background-image: url(../assets/img/arrow-blue.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  content: "";
+  height: 3rem;
+  left: 100%;
+  position: absolute;
+  width: 10rem;
 }

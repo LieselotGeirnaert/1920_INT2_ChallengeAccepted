@@ -21,12 +21,35 @@ class HinderDAO extends DAO {
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
   }
 
-  public function selectAllExperiencesForUser($id) {
-    $sql = "SELECT `experiences`.`id`, `experiences`.`date`, `experiences`.`video`, `experiences`.`likes`, `users`.`name` as `user_name`, `situations`.`name` as `situation_name`
+  public function selectAllExperiencesByUserId($id) {
+    $sql = "SELECT `experiences`.`id`, `experiences`.`date`, `experiences`.`video`, `experiences`.`likes`, `users`.`name` AS `user_name`, `situations`.`name` AS `situation_name`
             FROM `experiences`
             INNER JOIN `users` ON `experiences`.`user_id` = `users`.`id`
             INNER JOIN `situations` ON `experiences`.`situation_id` = `situations`.`id`
             WHERE `experiences`.`user_id` = :id";
+    $stmt = $this->pdo->prepare($sql);
+    $stmt->bindValue(':id', $id);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+  }
+
+  public function selectExperienceById($id) {
+    $sql = "SELECT `experiences`.`title`, `experiences`.`description`, `experiences`.`video`, `experiences`.`likes`, `situations`.`name` AS `situation_name`, `users`.`name`AS `user_name`
+            FROM `experiences`
+            INNER JOIN `users` ON `experiences`.`user_id` = `users`.`id`
+            INNER JOIN `situations` ON `experiences`.`situation_id` = `situations`.`id` 
+            WHERE `experiences`.`id` = :id";
+    $stmt = $this->pdo->prepare($sql);
+    $stmt->bindValue(':id', $id);
+    $stmt->execute();
+    return $stmt->fetch(PDO::FETCH_ASSOC);
+  }
+
+  public function selectAllReviewsByExperienceId($id) {
+    $sql = "SELECT `reviews`.`rating`, `reviews`.`review`, `users`.`name`
+            FROM `reviews`
+            INNER JOIN `users` ON `reviews`.`user_id` = `users`.`id`
+            WHERE `reviews`.`experience_id` = :id";
     $stmt = $this->pdo->prepare($sql);
     $stmt->bindValue(':id', $id);
     $stmt->execute();
