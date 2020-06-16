@@ -34,7 +34,7 @@ class HinderDAO extends DAO {
   }
 
   public function selectExperienceById($id) {
-    $sql = "SELECT `experiences`.`title`, `experiences`.`description`, `experiences`.`video`, `experiences`.`likes`, `situations`.`name` AS `situation_name`, `users`.`name`AS `user_name`
+    $sql = "SELECT `experiences`.`id`, `experiences`.`title`, `experiences`.`description`, `experiences`.`video`, `experiences`.`likes`, `situations`.`name` AS `situation_name`, `users`.`name`AS `user_name`, `users`.`id`AS `user_id`
             FROM `experiences`
             INNER JOIN `users` ON `experiences`.`user_id` = `users`.`id`
             INNER JOIN `situations` ON `experiences`.`situation_id` = `situations`.`id` 
@@ -66,6 +66,18 @@ class HinderDAO extends DAO {
     $stmt->bindValue(':id', $id);
     $stmt->execute();
     return $stmt->fetch(PDO::FETCH_ASSOC);
+  }
+
+  public function insertReview($data) {
+    $sql = "INSERT INTO `reviews`(`rating`, `review`, `experience_id`, `user_id`) VALUES (:rating, :review, :experience_id, :user_id)";
+    $stmt = $this->pdo->prepare($sql);
+    $stmt->bindValue(':rating', $data['rating']);
+    $stmt->bindValue(':review', $data['review']);
+    $stmt->bindValue(':experience_id', $data['experience_id']);
+    $stmt->bindValue(':user_id', $data['user_id']);
+    if($stmt->execute()){
+      return $this->selectExperienceById($this->pdo->lastInsertId());
+    }
   }
 
   

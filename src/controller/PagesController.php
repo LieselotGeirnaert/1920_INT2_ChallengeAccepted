@@ -37,6 +37,35 @@ class PagesController extends Controller {
       exit();
     }
 
+    if(!empty($_POST['action'])) {
+      if($_POST['action'] == 'addReview'){
+        if (!empty($_POST)) {
+          $errors = array();
+        
+          if (empty($_POST['rating'])) {
+            $errors['rating'] = 'Gelieve een rating in te vullen';
+          }
+          if (empty($_POST['review'])) {
+            $errors['review'] = 'Gelieve een recensie in te vullen';
+          }
+
+          if (empty($errors)) {
+            $reviewId = $this->hinderDAO->insertReview($_POST);
+            if ($reviewId) {
+              var_dump($reviewId);
+              $_SESSION['info'] = 'Bedankt voor je quote';
+              header('Location:index.php?page=hinderervaring&id=' . $_GET['id']);
+              exit();
+            } else {
+              $_SESSION['error'] = 'Oeps, er ging iets mis!';
+            }
+          }
+          $_SESSION['error'] = 'Oeps, er ging iets mis!';
+          $this->set('errors', $errors);
+        }
+      }
+    }
+
     $this->set('experience', $experience);
     $this->set('reviews', $reviews);
     $this->set('title', 'Hinderervaring');
@@ -68,6 +97,10 @@ class PagesController extends Controller {
     } else {
       $this->set('title', 'Maak een hinderervaring');
     }
+  }
+
+  public function maakrecensie () {
+    
   }
 }
 

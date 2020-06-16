@@ -1,5 +1,5 @@
 .content__experience {
-  padding: 10rem 5rem;
+  padding: 10rem;
 }
 
 .experience__back {
@@ -23,8 +23,8 @@
 
 .experience__container {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto;
+  grid-template-columns: 1.5fr 1fr;
+  grid-template-rows: 30rem auto;
   margin-top: 10rem;
 }
 
@@ -49,6 +49,125 @@
   font-weight: 400;
 }
 
-.experience__video {
+.experience__content {
   background-color: var(--whiteColor);
+  box-shadow: 0 1rem 1.5rem var(--shadowColor);
+  display: grid;
+  grid-column: 1;
+  grid-row: 2 / 3;
+  grid-template-columns: auto;
+  grid-template-rows: 50rem 12rem auto;
+  margin-left: 5rem;
+  max-height: 80rem;
+  padding: 3rem;
+  transform: rotate(-3deg);
+}
+
+.content__video {
+  background-color: green;
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.content__title {
+  color: var(--yellowColor);
+  font-family: "TrashHand", Helvetica, Arial, sans-serif;
+  font-size: 4rem;
+  padding: 5rem 0 0 5rem;
+}
+
+.content__descr {
+  font-size: 3rem;
+  padding-left: 5rem;
+}
+
+.content__experience .experience__stats {
+  grid-row: 1 / 2;
+  margin-top: -12rem;
+  position: absolute;
+}
+
+.experience__reviews {
+  background-color: var(--whiteColor);
+  box-shadow: 0 1rem 1.5rem var(--shadowColor);
+  display: flex;
+  flex-direction: column;
+  grid-column: 2;
+  grid-row: 1 / 3;
+  justify-content: space-between;
+  margin-left: -5rem;
+  padding: 8rem 8rem 2rem 8rem;
+  transform: rotate(-2deg);
+}
+
+.reviews__title {
+  color: var(--redColor);
+  font-size: 3rem;
+  font-weight: 700;
+  padding-bottom: 2rem;
+  text-transform: uppercase;
+}
+
+.reviews__container {
+  display: flex;
+  flex-direction: column;
+  max-height: 55rem;
+  overflow-y: scroll;
+}
+
+.reviews__none {
+  font-family: "TrashHand", Helvetica, Arial, sans-serif;
+  font-size: 3.5rem;
+  text-align: center;
+}
+
+.review {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  grid-row-gap: 1.5rem;
+  padding: 5rem 0;
+  position: relative;
+}
+
+.review:last-child::after {
+  display: none;
+}
+
+.review::after {
+  background-image: url(../assets/img/line.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  content: "";
+  height: 200%;
+  position: absolute;
+  width: 100%;
+}
+
+.review__name {
+  color: var(--greenColor);
+  font-family: "TrashHand", Helvetica, Arial, sans-serif;
+  font-size: 3.5rem;
+  grid-row: 1;
+  grid-column: 1;
+}
+
+.review__rating {
+  grid-row: 1;
+  grid-column: 2;
+}
+
+.review__review {
+  font-size: 2.5rem;
+  grid-row: 2;
+  grid-column: 1 / 3;
+}
+
+.review__form {
+  margin-top: 5rem;
+}
+
+.content__experience .btn {
+  margin: 0 auto;
 }
