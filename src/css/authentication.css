@@ -16,6 +16,7 @@
 
 .auth__link {
   color: var(--textColor);
+  text-decoration: underline;
 }
 
 .auth__form {

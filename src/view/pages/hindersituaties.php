@@ -1,4 +1,4 @@
-<section class="situations">
+<section class="content content--situations">
   <h2 class="situations__title">Maak jouw hinderervaring</h2>
   <p class="situations__descr">Kies jouw favoriete hinder-locatie of -situatie en ga ermee aan de slag. Veel hinderplezier!</p>
   

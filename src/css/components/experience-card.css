@@ -2,8 +2,6 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
-  position: absolute;
-  top: 45rem;
   width: calc(100vw - 30rem);
 }
 

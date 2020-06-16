@@ -1,4 +1,4 @@
-<section class="overview">
+<section class="content content__overview">
   <h2 class="overview__subtitle">Ontdek hoe anderen de wereld al een beetje irritanter maakten!</h2>
   
   <div class="experiences-container">

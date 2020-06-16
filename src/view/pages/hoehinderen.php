@@ -1,7 +1,7 @@
-<section>
+<section class="content content__how">
   <h2 class="hidden">Hoe hinderen</h2>
 
-  <section class="why content">
+  <section class="why">
     <h3 class="why__title">Waarom HotelHinder</h3>
     <p class="why__text">We zien het als <span class="why__text--accent">onze eigen missie om de wereld een beetje mooier te maken</span>,
         en daarvoor hebben we de hulp nodig van alle stiekeme plaaggeesten en pestkoppen, 
@@ -40,7 +40,7 @@
     <button class="btn">Begin met hinderen</button>
   </section>
 
-  <section class="tips content">
+  <section class="tips">
     <h3 class="subtitle tips__subtitle">All-in tips</h3>
     <section class="tips__cocktails">
       <h4>Cocktails tijdens het hinderen</h4>

@@ -1,25 +1,29 @@
-<section class="profile">
+<section class="content content--profile">
   <h2 class="hidden">Profiel</h2>
-  <div class="profile__header">
+  <section class="profile__header">
+    <h3 class="hidden">Profiel info</h3>
     <div class="header__picture">
-      <a href=""></a>
+      <img src="" alt="">
     </div>
     <div class="header__info">
-      <p><?php echo $userinfo['name']; ?></p>
-      <p><?php echo $userinfo['email']; ?></p>
-      <p><?php echo $userinfo['likes_count']; ?></p>
-      <p><?php echo $userinfo['experiences_count']; ?></p>
-      
+      <p class="info__name"><?php echo $userinfo['name']; ?></p>
+      <p class="info__email"><?php echo $userinfo['email']; ?></p>
+      <div class="info__stats">
+        <span class="stats__item stats__item--experiences"><?php echo $userinfo['likes_count']; ?></span>
+        <span class="stats__item stats__item--likes"><?php echo $userinfo['experiences_count']; ?></span>
+        <span class="stats__item stats__item--reviews"><?php echo $userinfo['experiences_count']; ?></span>
+      </div>
     </div>
     <a href="index.php?page=logout" class="header__logout">Afmelden</a>
-
-  </div>
+  </section>
+  
   <section>
+    <h3 class="hidden">Hinderervaringen</h3>
     <div class="experiences-container">
       <a href="index.php?page=hindersituaties" class="experience experience--new">
         <p class="experience__title">Deel een nieuwe ervaring</p>
         <span class="experience__img"></span>
-        <div class="experience__stats"></div>
+        <span class="experience__stats"></span>
         <span class="experience__link"></span>
       </a>
       <?php foreach ($experiences as $experience): ?>

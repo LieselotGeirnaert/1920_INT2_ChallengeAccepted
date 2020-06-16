@@ -150,3 +150,8 @@ main {
   background-position: center;
   background-size: 50%, contain;
 }
+
+/* content */
+.content {
+  padding: 10rem 15rem;
+}
