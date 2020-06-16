@@ -76,7 +76,7 @@ class HinderDAO extends DAO {
     $stmt->bindValue(':experience_id', $data['experience_id']);
     $stmt->bindValue(':user_id', $data['user_id']);
     if($stmt->execute()){
-      return $this->selectExperienceById($this->pdo->lastInsertId());
+      return $this->selectExperienceById($data['experience_id']);
     }
   }
 

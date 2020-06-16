@@ -27,7 +27,14 @@
         <?php foreach ($reviews as $review): ?>
           <div class="review">
             <p class="review__name"><?php echo $review['name']; ?></p>
-            <p class="review__rating"><?php echo $review['rating']; ?></p>
+            <span>
+               <?php for ($i = 0; $i < $review['rating']; $i++): ?>
+                  <img src="assets/img/icon-rating-full.svg" alt="Star icon">
+               <?php endfor; ?>
+               <?php for ($i = 0; $i < 5 - $review['rating']; $i++): ?>
+                  <img src="assets/img/icon-rating-outline.svg" alt="Star icon">
+               <?php endfor; ?>
+            </span>
             <p class="review__review"><?php echo $review['review']; ?></p>
           </div>
         <?php endforeach; ?>
@@ -36,7 +43,7 @@
         <input type="hidden" name="experience_id" value="<?php echo $experience['id'] ?>">
         <input type="hidden" name="user_id" value="<?php echo $experience['user_id'] ?>">
         <input type="hidden" name="action" value="addReview">
-        
+
         <p class="reviews__title">Nieuwe recensie</p>
         <div class="form__row">
           <label for="rating" class="form__label">Aantal sterren</label>

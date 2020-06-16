@@ -10,11 +10,11 @@ class PagesController extends Controller {
     $this->hinderDAO = new HinderDAO();
   }
 
-  public function home () {
+  public function home() {
     $this->set('title', 'Home');
   }
 
-  public function hoehinderen () {
+  public function hoehinderen() {
     $this->set('title', 'Hoe hinderen');
   }
 
@@ -27,7 +27,7 @@ class PagesController extends Controller {
     $this->set('title', 'Hinderoverzicht');
   }
 
-  public function hinderervaring () {
+  public function hinderervaring() {
     if(!empty($_GET['id'])){
       $experience = $this->hinderDAO->selectExperienceById($_GET['id']);
       $reviews = $this->hinderDAO->selectAllReviewsByExperienceId($_GET['id']);
@@ -40,19 +40,10 @@ class PagesController extends Controller {
     if(!empty($_POST['action'])) {
       if($_POST['action'] == 'addReview'){
         if (!empty($_POST)) {
-          $errors = array();
-        
-          if (empty($_POST['rating'])) {
-            $errors['rating'] = 'Gelieve een rating in te vullen';
-          }
-          if (empty($_POST['review'])) {
-            $errors['review'] = 'Gelieve een recensie in te vullen';
-          }
-
-          if (empty($errors)) {
+          if (empty($this->validateReview())) {
             $reviewId = $this->hinderDAO->insertReview($_POST);
+            
             if ($reviewId) {
-              var_dump($reviewId);
               $_SESSION['info'] = 'Bedankt voor je quote';
               header('Location:index.php?page=hinderervaring&id=' . $_GET['id']);
               exit();
@@ -71,7 +62,7 @@ class PagesController extends Controller {
     $this->set('title', 'Hinderervaring');
   }
 
-  public function profiel () {
+  public function profiel() {
     if (empty($_SESSION['user'])) {
       header('location:index.php?page=login');
     } else {
@@ -84,14 +75,14 @@ class PagesController extends Controller {
     }
   }
 
-  public function hindersituaties () {
+  public function hindersituaties() {
     $situations = $this->hinderDAO->selectAllSituations();
     $this->set('situations', $situations);
     $this->set('title', 'Begin met hinderen');
 
   }
 
-  public function maakervaring () {
+  public function maakervaring() {
     if (empty($_SESSION['user'])) {
       header('location:index.php?page=login');
     } else {
@@ -99,8 +90,21 @@ class PagesController extends Controller {
     }
   }
 
-  public function maakrecensie () {
+  public function maakrecensie() {
     
+  }
+
+  public function validateReview() {
+    $errors = array();
+        
+    if (empty($_POST['rating'])) {
+      $errors['rating'] = 'Gelieve een rating in te vullen';
+    }
+    if (empty($_POST['review'])) {
+      $errors['review'] = 'Gelieve een recensie in te vullen';
+    }
+
+    return $errors;
   }
 }
 
