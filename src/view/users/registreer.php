@@ -61,6 +61,6 @@
       </div>
     </div>
 
-    <input type="submit" value="Registreren" class="btn">
+    <input type="submit" value="Registreren" class="btn btn--sticker">
   </form>
 </section>

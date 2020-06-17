@@ -11,7 +11,7 @@
         </div>
         <div class="situation__left">
           <p class="situation__descr"><?php echo $situation['description']; ?></p>
-          <a href="index.php?page=maakervaring&id=<?php echo $situation['id']; ?>" class="btn">Deel jouw ervaring</a>
+          <a href="index.php?page=maakervaring&id=<?php echo $situation['id']; ?>" class="btn btn--sticker">Deel jouw ervaring</a>
         </div>
       </article>
     <?php endforeach; ?>

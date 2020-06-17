@@ -10,6 +10,7 @@ class PagesController extends Controller {
     $this->hinderDAO = new HinderDAO();
   }
 
+  // pages
   public function home() {
     $this->set('title', 'Home');
   }
@@ -21,6 +22,8 @@ class PagesController extends Controller {
   public function hinderoverzicht () {
     $situations = $this->hinderDAO->selectAllSituations();
     $experiences = $this->hinderDAO->selectAllExperiences();
+
+    $this->addLike('hinderoverzicht');
 
     $this->set('situations', $situations);
     $this->set('experiences', $experiences);
@@ -44,7 +47,7 @@ class PagesController extends Controller {
             $reviewId = $this->hinderDAO->insertReview($_POST);
             
             if ($reviewId) {
-              $_SESSION['info'] = 'Bedankt voor je quote';
+              $_SESSION['info'] = 'Bedankt voor je recensie';
               header('Location:index.php?page=hinderervaring&id=' . $_GET['id']);
               exit();
             } else {
@@ -56,6 +59,8 @@ class PagesController extends Controller {
         }
       }
     }
+
+    $this->addLike('hinderervaring');
 
     $this->set('experience', $experience);
     $this->set('reviews', $reviews);
@@ -69,6 +74,8 @@ class PagesController extends Controller {
       $userinfo = $this->hinderDAO->selectUserById(1);
       $experiences = $this->hinderDAO->selectAllExperiencesByUserId(1);
       
+      $this->addLike('profiel');
+
       $this->set('userinfo', $userinfo);
       $this->set('experiences', $experiences);
       $this->set('title', 'Profiel');
@@ -77,9 +84,9 @@ class PagesController extends Controller {
 
   public function hindersituaties() {
     $situations = $this->hinderDAO->selectAllSituations();
+
     $this->set('situations', $situations);
     $this->set('title', 'Begin met hinderen');
-
   }
 
   public function maakervaring() {
@@ -90,8 +97,32 @@ class PagesController extends Controller {
     }
   }
 
-  public function maakrecensie() {
-    
+  // functions
+  public function addLike($page) {
+    if(!empty($_POST['action'])) {
+      if($_POST['action'] == 'addLike'){
+        if (!empty($_POST)) {
+          $data = array(
+            'likes' => $_POST['likes'] + 1,
+            'experience_id' => $_POST['experience_id'],
+          );
+
+          $experience = $this->hinderDAO->updateLike($data);
+            
+          if ($experience) {
+            if ($page === 'hinderervaring') {
+              header('Location:index.php?page=' . $page . '&id=' . $data['experience_id']);
+            } else {
+              header('Location:index.php?page=' . $page);
+            }
+            exit();
+          } else {
+            $_SESSION['error'] = 'Oeps, er ging iets mis!';
+          }
+          $_SESSION['error'] = 'Oeps, er ging iets mis!';
+        }
+      }
+    }
   }
 
   public function validateReview() {

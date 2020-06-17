@@ -68,6 +68,32 @@ class HinderDAO extends DAO {
     return $stmt->fetch(PDO::FETCH_ASSOC);
   }
 
+  public function updateLike($data) {
+    $sql = "UPDATE `experiences` SET `likes`= :likes
+            WHERE `id` = :experience_id"; 
+    $stmt = $this->pdo->prepare($sql);
+    $stmt->bindValue(':likes', $data['likes']);
+    $stmt->bindValue(':experience_id', $data['experience_id']);
+    
+    if($stmt->execute()){
+      return $this->selectExperienceById($data['experience_id']);
+    }
+  }
+
+  public function insertExperience($data) {
+    $sql = "INSERT INTO `experiences`(`title`, `description`, `video`, `user_id`, `situation_id`) VALUES (:title, :description, :video, :user_id, :situation_id)";
+    $stmt = $this->pdo->prepare($sql);
+    $stmt->bindValue(':title', $data['title']);
+    $stmt->bindValue(':description', $data['description']);
+    $stmt->bindValue(':video', $data['video']);
+    $stmt->bindValue(':user_id', $data['user_id']);
+    $stmt->bindValue(':situation_id', $data['situation_id']);
+    
+    if($stmt->execute()){
+      return $this->selectExperienceById($this->pdo->lastInsertId());
+    }
+  }
+
   public function insertReview($data) {
     $sql = "INSERT INTO `reviews`(`rating`, `review`, `experience_id`, `user_id`) VALUES (:rating, :review, :experience_id, :user_id)";
     $stmt = $this->pdo->prepare($sql);
@@ -75,6 +101,7 @@ class HinderDAO extends DAO {
     $stmt->bindValue(':review', $data['review']);
     $stmt->bindValue(':experience_id', $data['experience_id']);
     $stmt->bindValue(':user_id', $data['user_id']);
+    
     if($stmt->execute()){
       return $this->selectExperienceById($data['experience_id']);
     }

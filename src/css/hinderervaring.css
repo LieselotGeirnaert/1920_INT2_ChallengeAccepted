@@ -65,7 +65,7 @@
 
 .content__video {
   background-color: green;
-  grid-column: 1;
+  grid-column: 1 / 3;
   grid-row: 1;
 }
 
@@ -73,12 +73,21 @@
   color: var(--yellowColor);
   font-family: "TrashHand", Helvetica, Arial, sans-serif;
   font-size: 4rem;
+  grid-column: 1 / 3;
+  grid-row: 2 / 3;
   padding: 5rem 0 0 5rem;
 }
 
 .content__descr {
   font-size: 3rem;
+  grid-column: 1 / 3;
+  grid-row: 3 /4;
   padding-left: 5rem;
+}
+
+.content__like.experience__like {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
 }
 
 .content__experience .experience__stats {

@@ -125,18 +125,14 @@ main {
 /* buttons */
 .btn {
   background-color: inherit;
-  background-image: url(../assets/img/btn-blue.png);
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
   border: none;
-  color: var(--whiteColor);
   cursor: pointer;
   display: block;
   font-size: 1.6rem;
   font-weight: 700;
-  margin: 2rem auto;
-  padding: 5rem 6rem;
   text-align: center;
   text-decoration: none;
 }
@@ -145,7 +141,14 @@ main {
   outline: none;
 }
 
-.btn:hover {
+.btn--sticker {
+  background-image: url(../assets/img/btn-blue.png);
+  color: var(--whiteColor);
+  margin: 2rem auto;
+  padding: 5rem 6rem;
+}
+
+.btn--sticker:hover {
   background-image:  url(../assets/img/icon-active.svg), url(../assets/img/btn-blue.png);
   background-position: center;
   background-size: 50%, contain;

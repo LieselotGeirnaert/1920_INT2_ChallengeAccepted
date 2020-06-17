@@ -32,6 +32,6 @@
       </div>
     </div>
   
-    <input class="btn" type="submit" value="Aanmelden" />
+    <input class="btn btn--sticker" type="submit" value="Aanmelden" />
   </form>
 </section>

@@ -13,6 +13,12 @@
       <article class="experience">
         <h3 class="experience__title"><?php echo $experience['situation_name']; ?></h3>
         <img src="" alt="" class="experience__img">
+        <form method="post" action="index.php?page=hinderoverzicht" class="experience__like">
+          <input type="hidden" name="likes" value="<?php echo $experience['likes'] ?>">
+          <input type="hidden" name="experience_id" value="<?php echo $experience['id'] ?>">
+          <input type="hidden" name="action" value="addLike">
+          <input class="btn btn--like" type="submit" value="" />
+        </form>
         <div class="experience__stats">
           <p class="stats__icon stats__icon--likes"><?php echo $experience['likes']; ?></p>
           <p class="stats__icon stats__icon--reviews"><?php echo $experience['likes']; ?></p>
@@ -60,6 +66,6 @@
         </select>
       </label>
 
-      <input type="submit" value="Toepassen" class="btn">
+      <input type="submit" value="Toepassen" class="btn btn-sticker">
 
     </form>

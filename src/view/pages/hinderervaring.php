@@ -79,7 +79,7 @@
             <?php if(!empty($errors['review'])) echo '<div class="form__error">' . $errors['review'] . '</div>'; ?>
           </div>
         </div>
-        <input class="btn" type="submit" value="Recensie plaatsen" />
+        <input class="btn btn--sticker" type="submit" value="Recensie plaatsen" />
       </form>
     </section>
 
@@ -88,6 +88,12 @@
       <img src="" alt="" class="content__video">
       <p class="content__title"><?php echo $experience['title']; ?></p>
       <p class="content__descr"><?php echo $experience['description']; ?></p>
+      <form method="post" action="index.php?page=hinderervaring&id=<?php echo $id; ?>" class="content__like experience__like">
+        <input type="hidden" name="likes" value="<?php echo $experience['likes'] ?>">
+        <input type="hidden" name="experience_id" value="<?php echo $experience['id'] ?>">
+        <input type="hidden" name="action" value="addLike">
+        <input class="btn btn--like" type="submit" value="" />
+      </form>
     </section>
 
   </div>

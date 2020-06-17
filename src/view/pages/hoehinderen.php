@@ -37,7 +37,7 @@
       <img src="assets/img/arrow-yellow.png" class="arrows__icon arrows__icon--left" alt="scroll arrow left">
       <img src="assets/img/arrow-yellow.png" class="arrows__icon" alt="scroll arrow right">
     </div>
-    <button class="btn">Begin met hinderen</button>
+    <button class="btn btn--sticker">Begin met hinderen</button>
   </section>
 
   <section class="tips">
@@ -65,6 +65,6 @@
       <h4>Muziekmanie</h4>
       <p>Geniet zelf van een streepje muziek tijdens het hinderen, of gebruik de muziek om anderen te irriteren.</p>
     </section>
-    <button class="btn btn--blue">Begin met hinderen</button>
+    <button class="btn btn--sticker btn--blue">Begin met hinderen</button>
   </section>
 </section>
