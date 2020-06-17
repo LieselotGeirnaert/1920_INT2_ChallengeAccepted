@@ -1,6 +1,54 @@
 <section class="content content__overview">
   <h2 class="overview__subtitle">Ontdek hoe anderen de wereld al een beetje irritanter maakten!</h2>
-  
+  <form method="get" action="index.php?page=hinderoverzicht" class="filters">
+    <input type="hidden" name="page" value="activiteiten" />
+    <div class="form__row">
+      <label class="form__label" for="registerName">Volledige naam</label>
+      <div class="form__inputcontainer">
+        <input
+          type="text"
+          name="name"
+          id="registerName"
+          class="form__input"
+          placeholder="Geef jouw voornaam en achternaam..."
+          value="<?php if(!empty($_POST['name'])) echo $_POST['name'];?>"
+        />
+        <?php if(!empty($errors['name'])) echo '<div class="form__error">' . $errors['name'] . '</div>'; ?>
+      </div>
+    </div>
+
+    <label for="type" class="filter">
+      <span>Situatie:</span>
+      <select name="situation" id="situation" class="filter__select">
+        <option value="all">Alles</option>
+        <?php foreach ($situations as $situation): ?>
+          <option value="<?php echo $situation['id']; ?>"
+            <?php
+              if(!empty($_GET['id'])){
+                if($_GET['id'] == $situations['id']){
+                  echo ' selected';
+                }
+              }
+            ?>
+          ><?php echo $situation['name']; ?>
+        </option>
+      <?php endforeach; ?>
+      </select>
+    </label>
+
+    <label for="date" class="filter">
+      <span>Sorteren op:</span>
+      <select name="date" id="date" class="filter__select">
+          <option value="recent">Recentste</option>
+          <option value="popularity">Populairste</option>
+          <option value="reviews">Meeste recensies</option>
+          <option value="reviews">Beste recensies</option>
+      </select>
+    </label>
+
+    <input type="submit" value="Toepassen" class="btn btn-sticker">
+
+  </form>
   <div class="experiences-container">
     <a href="index.php?page=hindersituaties" class="experience experience--new">
       <p class="experience__title">Deel jouw eigen ervaring</p>
@@ -21,8 +69,8 @@
         </form>
         <div class="experience__stats">
           <p class="stats__icon stats__icon--likes"><?php echo $experience['likes']; ?></p>
-          <p class="stats__icon stats__icon--reviews"><?php echo $experience['likes']; ?></p>
-          <p class="stats__icon stats__icon--rating"><?php echo $experience['likes']; ?></p>
+          <p class="stats__icon stats__icon--reviews"><?php echo $experience['review_count']; ?></p>
+          <p class="stats__icon stats__icon--rating"><?php echo round($experience['rating_average'], 1); ?></p>
         </div>
         <div class="experience__details">
           <p class="experience__user"><?php echo $experience['user_name']; ?></p>
@@ -33,39 +81,3 @@
     <?php endforeach; ?>
   </div>
 </section>
-
-
-<!--
-<form action="index.php" method="get" class="filters">
-      <input type="hidden" name="page" value="activiteiten" />
-      <label for="type" class="filter">
-        <span>Situatie:</span>
-        <select name="situation" id="situation" class="filter__select">
-          <option value="all">Alles</option>
-          <?php foreach ($situations as $situation): ?>
-            <option value="<?php echo $situation['id']; ?>"
-              <?php
-                if(!empty($_GET['id'])){
-                  if($_GET['id'] == $situations['id']){
-                    echo ' selected';
-                  }
-                }
-              ?>
-            ><?php echo $situation['name']; ?>
-          </option>
-        <?php endforeach; ?>
-        </select>
-      </label>
-
-      <label for="date" class="filter">
-        <span>Sorteren op:</span>
-        <select name="date" id="date" class="filter__select">
-            <option value="recent">Recentste</option>
-            <option value="popularity">Populariteit</option>
-            <option value="reviews">Recensies</option>
-        </select>
-      </label>
-
-      <input type="submit" value="Toepassen" class="btn btn-sticker">
-
-    </form>
