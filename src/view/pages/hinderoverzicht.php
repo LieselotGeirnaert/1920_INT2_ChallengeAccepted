@@ -1,7 +1,6 @@
 <section class="content content__overview">
   <h2 class="overview__subtitle">Ontdek hoe anderen de wereld al een beetje irritanter maakten!</h2>
   <form method="get" action="index.php?page=hinderoverzicht" class="filters">
-    <input type="hidden" name="page" value="activiteiten" />
     <div class="form__row">
       <label class="form__label" for="registerName">Volledige naam</label>
       <div class="form__inputcontainer">
@@ -17,10 +16,10 @@
       </div>
     </div>
 
-    <label for="type" class="filter">
+    <label for="situation" class="filter">
       <span>Situatie:</span>
       <select name="situation" id="situation" class="filter__select">
-        <option value="all">Alles</option>
+        <option value="all">Alle situaties</option>
         <?php foreach ($situations as $situation): ?>
           <option value="<?php echo $situation['id']; ?>"
             <?php
@@ -36,9 +35,9 @@
       </select>
     </label>
 
-    <label for="date" class="filter">
+    <label for="sort" class="filter">
       <span>Sorteren op:</span>
-      <select name="date" id="date" class="filter__select">
+      <select name="sort" id="sort" class="filter__select">
           <option value="recent">Recentste</option>
           <option value="popularity">Populairste</option>
           <option value="reviews">Meeste recensies</option>
@@ -47,8 +46,8 @@
     </label>
 
     <input type="submit" value="Toepassen" class="btn btn-sticker">
-
   </form>
+
   <div class="experiences-container">
     <a href="index.php?page=hindersituaties" class="experience experience--new">
       <p class="experience__title">Deel jouw eigen ervaring</p>

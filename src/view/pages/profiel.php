@@ -21,7 +21,11 @@
     <h3 class="hidden">Hinderervaringen</h3>
     <div class="experiences-container">
       <a href="index.php?page=hindersituaties" class="experience experience--new">
-        <p class="experience__title">Deel een nieuwe ervaring</p>
+        <?php if (count($experiences) === 0): ?>
+          <p class="experience__title">Deel een eerste ervaring</p>
+        <?php else: ?>
+          <p class="experience__title">Deel een nieuwe ervaring</p>
+        <?php endif; ?>
         <span class="experience__img"></span>
         <span class="experience__stats"></span>
         <span class="experience__link"></span>
@@ -38,8 +42,8 @@
           </form>
           <div class="experience__stats">
             <p class="stats__icon stats__icon--likes"><?php echo $experience['likes']; ?></p>
-            <p class="stats__icon stats__icon--reviews"><?php echo $experience['likes']; ?></p>
-            <p class="stats__icon stats__icon--rating"><?php echo $experience['likes']; ?></p>
+            <p class="stats__icon stats__icon--reviews"><?php echo $experience['review_count']; ?></p>
+            <p class="stats__icon stats__icon--rating"><?php echo round($experience['rating_average'], 1); ?></p>
           </div>
           <div class="experience__details">
             <p class="experience__user"><?php echo $experience['user_name']; ?></p>

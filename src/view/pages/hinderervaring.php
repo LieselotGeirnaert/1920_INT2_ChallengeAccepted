@@ -16,8 +16,8 @@
       <h3 class="reviews__title">Recensies</h3>
       <div class="experience__stats">
         <p class="stats__icon stats__icon--likes"><?php echo $experience['likes']; ?></p>
-        <p class="stats__icon stats__icon--reviews"><?php echo $experience['likes']; ?></p>
-        <p class="stats__icon stats__icon--rating"><?php echo $experience['likes']; ?></p>
+        <p class="stats__icon stats__icon--reviews"><?php echo $experience['review_count']; ?></p>
+        <p class="stats__icon stats__icon--rating"><?php echo round($experience['rating_average'], 1); ?></p>
       </div>
       <div class="reviews__container">
         <?php if (count($reviews) == 0): ?>
@@ -39,48 +39,55 @@
           </div>
         <?php endforeach; ?>
       </div>
-      <form method="post" action="index.php?page=hinderervaring&id=<?php echo $id; ?>" class="review__form">
-        <input type="hidden" name="experience_id" value="<?php echo $experience['id'] ?>">
-        <input type="hidden" name="user_id" value="<?php echo $experience['user_id'] ?>">
-        <input type="hidden" name="action" value="addReview">
-
+      <div class="review__form">
         <p class="reviews__title">Nieuwe recensie</p>
-        <div class="form__row">
-          <label for="rating" class="form__label">Aantal sterren</label>
-          <div class="form__inputcontainer">
-            <label for="one">
-              <input type="radio" id="one" name="rating" value="1">
-            </label>
-            <label for="two">
-              <input type="radio" id="two" name="rating" value="2">
-            </label>
-            <label for="three">
-              <input type="radio" id="three" name="rating" value="3">
-            </label>
-            <label for="four">
-              <input type="radio" id="four" name="rating" value="4">
-            </label>
-            <label for="five">
-              <input type="radio" id="five" name="rating" value="5">
-            </label>
-            <?php if(!empty($errors['rating'])) echo '<div class="form__error">' . $errors['rating'] . '</div>'; ?>
+        <?php if (empty($_SESSION['user'])): ?>
+          <p>Je moet aangemeld zijn om een recensie te plaatsen</p>
+          <a href="index.php?page=login" class="btn btn--sticker">Aanmelden</a>
+        <?php else: ?>
+         <form method="post" action="index.php?page=hinderervaring&id=<?php echo $id; ?>" class="review__form">
+          <input type="hidden" name="experience_id" value="<?php echo $experience['id'] ?>">
+          <input type="hidden" name="user_id" value="<?php echo $experience['user_id'] ?>">
+          <input type="hidden" name="action" value="addReview">
+
+          <div class="form__row">
+            <label for="rating" class="form__label">Aantal sterren</label>
+            <div class="form__inputcontainer">
+              <label for="one">
+                <input type="radio" id="one" name="rating" value="1">
+              </label>
+              <label for="two">
+                <input type="radio" id="two" name="rating" value="2">
+              </label>
+              <label for="three">
+                <input type="radio" id="three" name="rating" value="3">
+              </label>
+              <label for="four">
+                <input type="radio" id="four" name="rating" value="4">
+              </label>
+              <label for="five">
+                <input type="radio" id="five" name="rating" value="5">
+              </label>
+              <?php if(!empty($errors['rating'])) echo '<div class="form__error">' . $errors['rating'] . '</div>'; ?>
+            </div>
           </div>
-        </div>
-        <div class="form__row">
-          <label for="reviewForm" class="form__label">Jouw recensie</label>
-          <div class="form__inputcontainer">
-            <input
-              id="reviewForm"
-              class="form__input"
-              name="review"
-              placeholder="Wat vond je van deze ervaring?"
-              value="<?php if(!empty($_POST['review'])) echo $_POST['review'];?>"
-            />
-            <?php if(!empty($errors['review'])) echo '<div class="form__error">' . $errors['review'] . '</div>'; ?>
+          <div class="form__row">
+            <label for="reviewForm" class="form__label">Jouw recensie</label>
+            <div class="form__inputcontainer">
+              <input
+                id="reviewForm"
+                class="form__input"
+                name="review"
+                placeholder="Wat vond je van deze ervaring?"
+                value="<?php if(!empty($_POST['review'])) echo $_POST['review'];?>"
+              />
+              <?php if(!empty($errors['review'])) echo '<div class="form__error">' . $errors['review'] . '</div>'; ?>
+            </div>
           </div>
-        </div>
-        <input class="btn btn--sticker" type="submit" value="Recensie plaatsen" />
-      </form>
+          <input class="btn btn--sticker" type="submit" value="Recensie plaatsen" />
+        </form>
+        <?php endif; ?>
+      </div>
     </section>
 
     <section class="experience__content">

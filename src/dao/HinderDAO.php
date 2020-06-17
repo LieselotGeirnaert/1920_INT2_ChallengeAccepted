@@ -8,6 +8,7 @@ class HinderDAO extends DAO {
     $sql = "SELECT * FROM `situations`";
     $stmt = $this->pdo->prepare($sql);
     $stmt->execute();
+    
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
   }
 
@@ -21,30 +22,54 @@ class HinderDAO extends DAO {
             ORDER BY `experiences`.`date` DESC";
     $stmt = $this->pdo->prepare($sql);
     $stmt->execute();
+    
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+  }
+
+  public function selectAllExperiencesBySituationId($id) {
+    $sql = "SELECT `experiences`.`id`, `experiences`.`date`, `experiences`.`video`, `experiences`.`likes`, `users`.`name` AS `user_name`, `situations`.`name` AS `situation_name`, COUNT(`reviews`.`id`) AS `review_count`, AVG(`reviews`.`rating`) AS `rating_average`
+            FROM `experiences`
+            INNER JOIN `users` ON `experiences`.`user_id` = `users`.`id`
+            INNER JOIN `situations` ON `experiences`.`situation_id` = `situations`.`id`
+            LEFT OUTER JOIN `reviews` ON `experiences`.`id` = `reviews`.`experience_id`
+            WHERE `situations`.`id` = :id
+            GROUP BY `reviews`.`experience_id`
+            ORDER BY `experiences`.`date` DESC";
+    $stmt = $this->pdo->prepare($sql);
+    $stmt->bindValue(':id', $id);
+    $stmt->execute();
+    
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
   }
 
   public function selectAllExperiencesByUserId($id) {
-    $sql = "SELECT `experiences`.`id`, `experiences`.`date`, `experiences`.`video`, `experiences`.`likes`, `users`.`name` AS `user_name`, `situations`.`name` AS `situation_name`
+    $sql = "SELECT `experiences`.`id`, `experiences`.`date`, `experiences`.`video`, `experiences`.`likes`, `users`.`name` AS `user_name`, `situations`.`name` AS `situation_name`, COUNT(`reviews`.`id`) AS `review_count`, AVG(`reviews`.`rating`) AS `rating_average`
             FROM `experiences`
             INNER JOIN `users` ON `experiences`.`user_id` = `users`.`id`
             INNER JOIN `situations` ON `experiences`.`situation_id` = `situations`.`id`
-            WHERE `experiences`.`user_id` = :id";
+            LEFT OUTER JOIN `reviews` ON `experiences`.`id` = `reviews`.`experience_id`
+            WHERE `experiences`.`user_id` = :id
+            GROUP BY `reviews`.`experience_id`
+            ORDER BY `experiences`.`date` DESC";
     $stmt = $this->pdo->prepare($sql);
     $stmt->bindValue(':id', $id);
     $stmt->execute();
+    
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
   }
 
   public function selectExperienceById($id) {
-    $sql = "SELECT `experiences`.`id`, `experiences`.`title`, `experiences`.`description`, `experiences`.`video`, `experiences`.`likes`, `situations`.`name` AS `situation_name`, `users`.`name`AS `user_name`, `users`.`id`AS `user_id`
+    $sql = "SELECT `experiences`.`id`, `experiences`.`date`, `experiences`.`video`, `experiences`.`title`, `experiences`.`description`, `experiences`.`likes`, `users`.`id` AS `user_id`, `users`.`name` AS `user_name`, `situations`.`name` AS `situation_name`, COUNT(`reviews`.`id`) AS `review_count`, AVG(`reviews`.`rating`) AS `rating_average`
             FROM `experiences`
             INNER JOIN `users` ON `experiences`.`user_id` = `users`.`id`
-            INNER JOIN `situations` ON `experiences`.`situation_id` = `situations`.`id` 
-            WHERE `experiences`.`id` = :id";
+            INNER JOIN `situations` ON `experiences`.`situation_id` = `situations`.`id`
+            LEFT OUTER JOIN `reviews` ON `experiences`.`id` = `reviews`.`experience_id`
+            WHERE `experiences`.`id` = :id
+            GROUP BY `reviews`.`experience_id`";
     $stmt = $this->pdo->prepare($sql);
     $stmt->bindValue(':id', $id);
     $stmt->execute();
+    
     return $stmt->fetch(PDO::FETCH_ASSOC);
   }
 
@@ -56,18 +81,20 @@ class HinderDAO extends DAO {
     $stmt = $this->pdo->prepare($sql);
     $stmt->bindValue(':id', $id);
     $stmt->execute();
+    
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
   }
 
   public function selectUserById($id) {
     $sql = "SELECT `users`.`name`, `users`.`email`, COUNT(`experiences`.`id`) AS `experiences_count`, SUM(`experiences`.`likes`) AS `likes_count`
             FROM `users`
-            INNER JOIN `experiences` ON `experiences`.`user_id` = `users`.`id`
+            LEFT OUTER JOIN `experiences` ON `experiences`.`user_id` = `users`.`id`
             WHERE `users`.`id` = :id
             GROUP BY `users`.`id`";
     $stmt = $this->pdo->prepare($sql);
     $stmt->bindValue(':id', $id);
     $stmt->execute();
+    
     return $stmt->fetch(PDO::FETCH_ASSOC);
   }
 
