@@ -92,7 +92,7 @@
 
     <section class="experience__content">
       <h3 class="hidden">Video</h3>
-      <img src="" alt="" class="content__video">
+      <video src="<?php echo $experience['video'] ?>" alt="" class="content__video">
       <p class="content__title"><?php echo $experience['title']; ?></p>
       <p class="content__descr"><?php echo $experience['description']; ?></p>
       <form method="post" action="index.php?page=hinderervaring&id=<?php echo $id; ?>" class="content__like experience__like">

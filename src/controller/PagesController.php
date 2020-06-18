@@ -121,6 +121,17 @@ class PagesController extends Controller {
     if (empty($_SESSION['user'])) {
       header('location:index.php?page=login');
     } else {
+      $situation = $this->hinderDAO->selectSituationById($_GET['id']);
+      
+      if (!empty($_POST['action'])) {
+        if ($_POST['action'] == 'addExperience') {
+          $this->addExperience();
+        }
+      }
+      
+      $this->set('situation', $situation);
+
+
       $this->set('title', 'Maak een hinderervaring');
     }
   }
@@ -174,6 +185,67 @@ class PagesController extends Controller {
       $_SESSION['error'] = 'Oeps, er ging iets mis!';
       $this->set('errors', $errors);  
     }
+  }
+
+  public function addExperience() {
+    if (!empty($_POST)) {
+      $errors = $this->validateExperience();
+
+      if (empty($errors)) {
+        // controleer of het een video is van het type mp4 of mov
+        $whitelist_type = array('video/mp4', 'video/quicktime');
+        if (!in_array($_FILES['video']['type'], $whitelist_type)) {
+          $errors['video'] = 'Gelieve een mp4 of mov file te selecteren';
+        }
+      
+        if (empty($error)) {
+          // map met een random naam aanmaken voor de upload: redelijk zeker dat er geen conflict is met andere uploads
+          $projectFolder = realpath(__DIR__);
+          $targetFolder = $projectFolder . '/../assets/uploads';
+          $targetFolder = tempnam($targetFolder, '');
+          unlink($targetFolder);
+          mkdir($targetFolder, 0777, true);
+          $targetFileName = $targetFolder . '/' . $_FILES['video']['name'];
+          move_uploaded_file($_FILES['video']['tmp_name'], $targetFileName);
+
+          $relativeFileName = substr($targetFileName, strlen($projectFolder) - strlen("controller"));
+
+          $data = array(
+            'title' => $_POST['title'],
+            'description' => $_POST['description'],
+            'video' => $relativeFileName,
+            'user_id' => $_SESSION['user']['id'],
+            'situation_id' => $_POST['situation_id'],
+          );
+
+          $experience = $this->hinderDAO->insertExperience($data);
+          
+          if ($experience) {
+            $_SESSION['info'] = 'Bedankt voor je recensie';
+            header('Location:index.php?page=hinderervaring&id=' . $experience['id']);
+            exit();
+          } else {
+            $_SESSION['error'] = 'Oeps, er ging iets mis!';
+          }
+        }
+      }
+
+      $_SESSION['error'] = 'Oeps, er ging iets mis!';
+      $this->set('errors', $errors);  
+    }
+  }
+
+  public function validateExperience() {
+    $errors = array();
+
+    if (empty($_FILES['video']) || !empty($_FILES['video']['error'])) {
+      $errors['video'] = 'Gelieve een bestand te selecteren';
+    }
+    if (empty($_POST['title'])) {
+      $errors['title'] = 'Gelieve een titel in te vullen';
+    }
+
+    return $errors;
   }
 
   public function validateReview() {

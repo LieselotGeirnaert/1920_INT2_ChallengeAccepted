@@ -99,7 +99,7 @@
       <?php foreach ($experiences as $experience): ?>
         <article class="experience">
           <h3 class="experience__title"><?php echo $experience['situation_name']; ?></h3>
-          <img src="" alt="" class="experience__img">
+          <img src="<?php echo $experience['video'] ?>" alt="" class="experience__img">
           <form method="post" action="index.php?page=profiel" class="experience__like">
             <input type="hidden" name="likes" value="<?php echo $experience['likes'] ?>">
             <input type="hidden" name="experience_id" value="<?php echo $experience['id'] ?>">
