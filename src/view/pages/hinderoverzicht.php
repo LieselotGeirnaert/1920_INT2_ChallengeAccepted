@@ -1,51 +1,69 @@
 <section class="content content__overview">
   <h2 class="overview__subtitle">Ontdek hoe anderen de wereld al een beetje irritanter maakten!</h2>
-  <form method="get" action="index.php?page=hinderoverzicht" class="filters">
-    <div class="form__row">
-      <label class="form__label" for="registerName">Volledige naam</label>
-      <div class="form__inputcontainer">
-        <input
-          type="text"
-          name="name"
-          id="registerName"
-          class="form__input"
-          placeholder="Geef jouw voornaam en achternaam..."
-          value="<?php if(!empty($_POST['name'])) echo $_POST['name'];?>"
-        />
-        <?php if(!empty($errors['name'])) echo '<div class="form__error">' . $errors['name'] . '</div>'; ?>
-      </div>
-    </div>
-
-    <label for="situation" class="filter">
-      <span>Situatie:</span>
+  <form method="get" action="index.php?page=hinderoverzicht" class="filterform">
+    <input type="hidden" name="page" value="hinderoverzicht" />
+    <label for="situation" class="filterform__filter">
+      <span class="filter__label">Situatie:</span>
       <select name="situation" id="situation" class="filter__select">
         <option value="all">Alle situaties</option>
         <?php foreach ($situations as $situation): ?>
           <option value="<?php echo $situation['id']; ?>"
             <?php
-              if(!empty($_GET['id'])){
-                if($_GET['id'] == $situations['id']){
+              if (!empty($_GET['situation'])){
+                if ($_GET['situation'] == $situation['id']){
                   echo ' selected';
                 }
               }
             ?>
-          ><?php echo $situation['name']; ?>
-        </option>
-      <?php endforeach; ?>
+            ><?php echo $situation['name']; ?>
+          </option>
+        <?php endforeach; ?>
       </select>
     </label>
 
-    <label for="sort" class="filter">
-      <span>Sorteren op:</span>
+    <label for="sort" class="filterform__filter">
+      <span class="filter__label">Sorteren op:</span>
       <select name="sort" id="sort" class="filter__select">
-          <option value="recent">Recentste</option>
-          <option value="popularity">Populairste</option>
-          <option value="reviews">Meeste recensies</option>
-          <option value="reviews">Beste recensies</option>
+        <option value="recent"
+          <?php
+            if (!empty($_GET['sort'])){
+              if ($_GET['sort'] == "recent"){
+                echo ' selected';
+              }
+            }
+          ?>
+        >Recentste</option>
+        <option value="popularity"
+          <?php
+            if (!empty($_GET['sort'])){
+              if ($_GET['sort'] == "popularity"){
+                echo ' selected';
+              }
+            }
+          ?>
+        >Populairste</option>
+        <option value="mostreviews"
+          <?php
+            if (!empty($_GET['sort'])){
+              if ($_GET['sort'] == "mostreviews"){
+                echo ' selected';
+              }
+            }
+          ?>
+        >Meeste recensies</option>
+        <option value="bestreviews"
+          <?php
+            if (!empty($_GET['sort'])){
+              if ($_GET['sort'] == "bestreviews"){
+                echo ' selected';
+              }
+            }
+          ?>
+        >Beste recensies</option>
       </select>
     </label>
 
-    <input type="submit" value="Toepassen" class="btn btn-sticker">
+    <input type="submit" value="Toepassen" class="btn btn--sticker">
   </form>
 
   <div class="experiences-container">

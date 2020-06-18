@@ -22,11 +22,21 @@ class PagesController extends Controller {
   public function hinderoverzicht () {
     $situations = $this->hinderDAO->selectAllSituations();
     
-    if (empty($_GET['situation']) || $_GET['situation'] === 'all') {
-      $experiences = $this->hinderDAO->selectAllExperiences();
-    } else {
-      $experiences = $this->hinderDAO->selectAllExperiencesBySituationId($_GET['situation']);
+    $situation = false;
+    if (!empty($_GET['situation'])) {
+      if ($_GET['situation'] == 'all') {
+        $situation = false;
+      } else {
+        $situation = $_GET['situation'];
+      }
     }
+
+    $sort = false;
+    if (!empty($_GET['sort'])){
+      $sort = $_GET['sort'];
+    }
+
+    $experiences = $this->hinderDAO->selectAllExperiencesWithFilters($userid = false, $situation, $sort);
 
     if (!empty($_POST['action'])) {
       if ($_POST['action'] == 'addLike') {
@@ -68,8 +78,25 @@ class PagesController extends Controller {
       header('location:index.php?page=login');
     } else {
       $userinfo = $this->hinderDAO->selectUserById($_SESSION['user']['id']);
-      $experiences = $this->hinderDAO->selectAllExperiencesByUserId($_SESSION['user']['id']);
-      
+      $situations = $this->hinderDAO->selectAllSituations();
+
+      $situation = false;
+      if (!empty($_GET['situation'])) {
+        if ($_GET['situation'] == 'all') {
+          $situation = false;
+        } else {
+          $situation = $_GET['situation'];
+        }
+      }
+
+      $sort = false;
+      if (!empty($_GET['sort'])){
+        $sort = $_GET['sort'];
+      }
+
+      $userid = $_SESSION['user']['id'];
+      $experiences = $this->hinderDAO->selectAllExperiencesWithFilters($userid, $situation, $sort);
+
       if (!empty($_POST['action'])) {
        if ($_POST['action'] == 'addLike') {
           $this->addLike('profiel');
@@ -77,6 +104,7 @@ class PagesController extends Controller {
       }
 
       $this->set('userinfo', $userinfo);
+      $this->set('situations', $situations);
       $this->set('experiences', $experiences);
       $this->set('title', 'Profiel');
     }

@@ -19,6 +19,72 @@
   
   <section>
     <h3 class="hidden">Hinderervaringen</h3>
+    <form method="get" action="index.php?page=profiel" class="filterform">
+      <input type="hidden" name="page" value="profiel" />
+      <label for="situation" class="filterform__filter">
+        <span class="filter__label">Situatie:</span>
+        <select name="situation" id="situation" class="filter__select">
+          <option value="all">Alle situaties</option>
+          <?php foreach ($situations as $situation): ?>
+            <option value="<?php echo $situation['id']; ?>"
+              <?php
+                if (!empty($_GET['situation'])){
+                  if ($_GET['situation'] == $situation['id']){
+                    echo ' selected';
+                  }
+                }
+              ?>
+              ><?php echo $situation['name']; ?>
+            </option>
+          <?php endforeach; ?>
+        </select>
+      </label>
+
+      <label for="sort" class="filterform__filter">
+        <span class="filter__label">Sorteren op:</span>
+        <select name="sort" id="sort" class="filter__select">
+          <option value="recent"
+            <?php
+              if (!empty($_GET['sort'])){
+                if ($_GET['sort'] == "recent"){
+                  echo ' selected';
+                }
+              }
+            ?>
+          >Recentste</option>
+          <option value="popularity"
+            <?php
+              if (!empty($_GET['sort'])){
+                if ($_GET['sort'] == "popularity"){
+                  echo ' selected';
+                }
+              }
+            ?>
+          >Populairste</option>
+          <option value="mostreviews"
+            <?php
+              if (!empty($_GET['sort'])){
+                if ($_GET['sort'] == "mostreviews"){
+                  echo ' selected';
+                }
+              }
+            ?>
+          >Meeste recensies</option>
+          <option value="bestreviews"
+            <?php
+              if (!empty($_GET['sort'])){
+                if ($_GET['sort'] == "bestreviews"){
+                  echo ' selected';
+                }
+              }
+            ?>
+          >Beste recensies</option>
+        </select>
+      </label>
+
+      <input type="submit" value="Toepassen" class="btn btn--sticker">
+    </form>
+
     <div class="experiences-container">
       <a href="index.php?page=hindersituaties" class="experience experience--new">
         <?php if (count($experiences) === 0): ?>

@@ -1,0 +1,29 @@
+.filterform {
+  align-items: baseline;
+  display: flex;
+  margin: 0 2rem 10rem;
+}
+
+.filterform__filter {
+  margin-right: 7rem;
+}
+
+.filter__label {
+  color: var(--greenColor);
+  font-weight: 700;
+}
+
+.filter__select {
+  background-color: transparent;
+  border: none;
+  color: var(--greenColor);
+  font-family: futura-pt, sans-serif;
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 400;
+  padding: 1rem 2rem;
+}
+
+.filterform .btn--sticker {
+  margin: 0;
+}

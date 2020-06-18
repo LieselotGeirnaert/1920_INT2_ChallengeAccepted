@@ -12,32 +12,44 @@ class HinderDAO extends DAO {
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
   }
 
-  public function selectAllExperiences() {
-    $sql = "SELECT `experiences`.`id`, `experiences`.`date`, `experiences`.`video`, `experiences`.`likes`, `users`.`name` AS `user_name`, `situations`.`name` AS `situation_name`, COUNT(`reviews`.`id`) AS `review_count`, AVG(`reviews`.`rating`) AS `rating_average`
-            FROM `experiences`
-            INNER JOIN `users` ON `experiences`.`user_id` = `users`.`id`
-            INNER JOIN `situations` ON `experiences`.`situation_id` = `situations`.`id`
-            LEFT OUTER JOIN `reviews` ON `experiences`.`id` = `reviews`.`experience_id`
-            GROUP BY `reviews`.`experience_id`
-            ORDER BY `experiences`.`date` DESC";
-    $stmt = $this->pdo->prepare($sql);
-    $stmt->execute();
+  public function selectAllExperiencesWithFilters($userid = false, $situation = false, $sort = false) {
+    $bindValues = array();
     
-    return $stmt->fetchAll(PDO::FETCH_ASSOC);
-  }
-
-  public function selectAllExperiencesBySituationId($id) {
     $sql = "SELECT `experiences`.`id`, `experiences`.`date`, `experiences`.`video`, `experiences`.`likes`, `users`.`name` AS `user_name`, `situations`.`name` AS `situation_name`, COUNT(`reviews`.`id`) AS `review_count`, AVG(`reviews`.`rating`) AS `rating_average`
             FROM `experiences`
             INNER JOIN `users` ON `experiences`.`user_id` = `users`.`id`
             INNER JOIN `situations` ON `experiences`.`situation_id` = `situations`.`id`
-            LEFT OUTER JOIN `reviews` ON `experiences`.`id` = `reviews`.`experience_id`
-            WHERE `situations`.`id` = :id
-            GROUP BY `reviews`.`experience_id`
-            ORDER BY `experiences`.`date` DESC";
+            LEFT OUTER JOIN `reviews` ON `experiences`.`id` = `reviews`.`experience_id`";
+  
+    if ($userid) {
+      $sql .= " WHERE `experiences`.`user_id` = :userid";
+      $bindValues[':userid'] = $userid;
+    }
+
+    if ($situation && !$userid) {
+      $sql .= " WHERE `situations`.`id` = :situation";
+      $bindValues[':situation'] = $situation;
+    } else if ($situation && $userid) {
+      $sql .= " AND `situations`.`id` = :situation";
+      $bindValues[':situation'] = $situation;
+    }
+              
+    $sql .= " GROUP BY `reviews`.`experience_id`";
+
+    if (!empty($sort)) {
+      if ($sort == false || $sort == "recent") {
+        $sql .= " ORDER BY `experiences`.`date` DESC";
+      } else if ($sort == "popularity") {
+        $sql .= " ORDER BY `experiences`.`likes` DESC";
+      } else if ($sort == "mostreviews") {
+        $sql .= " ORDER BY `review_count` DESC";
+      } else if ($sort == "bestreviews") {
+        $sql .= " ORDER BY `rating_average` DESC";
+      }
+    }
+  
     $stmt = $this->pdo->prepare($sql);
-    $stmt->bindValue(':id', $id);
-    $stmt->execute();
+    $stmt->execute($bindValues);
     
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
   }

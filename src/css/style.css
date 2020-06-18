@@ -11,6 +11,7 @@
 @import "profiel.css";
 @import "hinderervaring.css";
 @import "authentication.css";
-@import "components/experience-card.css"
+@import "components/experience-card.css";
+@import "components/filter.css";
 
 
