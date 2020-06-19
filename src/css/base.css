@@ -144,14 +144,23 @@ main {
 .btn--sticker {
   background-image: url(../assets/img/btn-blue.png);
   color: var(--whiteColor);
+  display: block;
   margin: 2rem auto;
   padding: 5rem 6rem;
+  position: relative;
 }
 
-.btn--sticker:hover {
-  background-image:  url(../assets/img/icon-active.svg), url(../assets/img/btn-blue.png);
+.btn--sticker:hover::after {
+  background-image: url(../assets/img/icon-active.svg);
   background-position: center;
-  background-size: 50%, contain;
+  background-repeat: no-repeat;
+  content: "";
+  display: block;
+  height: 5rem;
+  left: 0rem;
+  position: absolute;
+  top: 3.4rem;
+  width: 100%;
 }
 
 /* content */

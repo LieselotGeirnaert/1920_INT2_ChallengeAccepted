@@ -192,14 +192,12 @@ class PagesController extends Controller {
       $errors = $this->validateExperience();
 
       if (empty($errors)) {
-        // controleer of het een video is van het type mp4 of mov
         $whitelist_type = array('video/mp4', 'video/quicktime');
         if (!in_array($_FILES['video']['type'], $whitelist_type)) {
           $errors['video'] = 'Gelieve een mp4 of mov file te selecteren';
         }
       
         if (empty($error)) {
-          // map met een random naam aanmaken voor de upload: redelijk zeker dat er geen conflict is met andere uploads
           $projectFolder = realpath(__DIR__);
           $targetFolder = $projectFolder . '/../assets/uploads';
           $targetFolder = tempnam($targetFolder, '');

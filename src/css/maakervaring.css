@@ -1,0 +1,82 @@
+.new__header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header__back.experience__back {
+  margin: 0 0 0 10rem;
+}
+
+.header__intro {
+  color: var(--redColor);
+  font-family: "TrashHand", Helvetica, Arial, sans-serif;
+  font-size: 3rem;
+  margin-bottom: 10rem;
+  text-align: right;
+  transform: rotate(4deg);
+  width: 65rem;
+}
+
+.new__form {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form__fileupload {
+  background-color: var(--whiteColor);
+  box-shadow: 0 1rem 1.5rem var(--shadowColor);
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: 50rem auto;
+  height: 70rem;
+  padding: 4rem 4rem 0;
+  position: relative;
+  transform: rotate(-2deg);
+  width: 60rem;
+}
+
+.form__fileupload::before {
+  background-image: url(../assets/img/sticker-yellow.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  top: -5rem;
+  content: "";
+  height: 10rem;
+  position: absolute;
+  transform: rotate(6deg);
+  width: 100%;
+}
+
+.fileupload__button {
+  background-color: var(--lightblueColor);
+  background-image: url(../assets/img/icon-plus.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 10rem;
+  cursor: pointer;
+  grid-column: 1;
+  grid-row: 1 / 2;
+}
+
+.fileupload__button:hover {
+  background-size: 15rem;
+}
+
+.fileupload__hidden {
+  display: none;
+}
+
+.fileupload__title {
+  align-self: center;
+  color: var(--yellowColor);
+  font-family: "TrashHand", Helvetica, Arial, sans-serif;
+  font-size: 5rem;
+  justify-self: center;
+  transform: rotate(-4deg);
+}
+
+.form__right {
+  width: 65rem;
+}
+

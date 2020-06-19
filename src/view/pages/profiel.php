@@ -2,9 +2,6 @@
   <h2 class="hidden">Profiel</h2>
   <section class="profile__header">
     <h3 class="hidden">Profiel info</h3>
-    <div class="header__picture">
-      <img src="" alt="">
-    </div>
     <div class="header__info">
       <p class="info__name"><?php echo $userinfo['name']; ?></p>
       <p class="info__email"><?php echo $userinfo['email']; ?></p>
@@ -82,7 +79,7 @@
         </select>
       </label>
 
-      <input type="submit" value="Toepassen" class="btn btn--sticker">
+      <button type="submit" class="btn btn--sticker">Toepassen</button>
     </form>
 
     <div class="experiences-container">
@@ -92,14 +89,17 @@
         <?php else: ?>
           <p class="experience__title">Deel een nieuwe ervaring</p>
         <?php endif; ?>
-        <span class="experience__img"></span>
+        <span class="experience__video"></span>
         <span class="experience__stats"></span>
         <span class="experience__link"></span>
       </a>
       <?php foreach ($experiences as $experience): ?>
         <article class="experience">
           <h3 class="experience__title"><?php echo $experience['situation_name']; ?></h3>
-          <img src="<?php echo $experience['video'] ?>" alt="" class="experience__img">
+          <video controls  alt="" class="experience__video">
+            <source src="<?php echo $experience['video'] ?>" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>     
           <form method="post" action="index.php?page=profiel" class="experience__like">
             <input type="hidden" name="likes" value="<?php echo $experience['likes'] ?>">
             <input type="hidden" name="experience_id" value="<?php echo $experience['id'] ?>">

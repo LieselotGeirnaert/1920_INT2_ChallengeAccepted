@@ -84,7 +84,7 @@
               <?php if(!empty($errors['review'])) echo '<div class="form__error">' . $errors['review'] . '</div>'; ?>
             </div>
           </div>
-          <input class="btn btn--sticker" type="submit" value="Recensie plaatsen" />
+          <button type="submit" class="btn btn--sticker">Recensie plaatsen</button>
         </form>
         <?php endif; ?>
       </div>
@@ -92,7 +92,10 @@
 
     <section class="experience__content">
       <h3 class="hidden">Video</h3>
-      <video src="<?php echo $experience['video'] ?>" alt="" class="content__video">
+      <video controls  alt="" class="content__video">
+        <source src="<?php echo $experience['video'] ?>" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
       <p class="content__title"><?php echo $experience['title']; ?></p>
       <p class="content__descr"><?php echo $experience['description']; ?></p>
       <form method="post" action="index.php?page=hinderervaring&id=<?php echo $id; ?>" class="content__like experience__like">
