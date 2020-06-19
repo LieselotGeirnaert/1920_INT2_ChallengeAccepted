@@ -89,7 +89,7 @@
         </form>
         <div class="experience__stats">
           <p class="stats__icon stats__icon--likes"><?php echo $experience['likes']; ?></p>
-          <p class="stats__icon stats__icon--reviews"><?php echo $experience['review_count']; ?></p>
+          <p class="stats__icon stats__icon--reviews"><?php echo (int)$experience['review_count']; ?></p>
           <p class="stats__icon stats__icon--rating"><?php echo round($experience['rating_average'], 1); ?></p>
         </div>
         <div class="experience__details">

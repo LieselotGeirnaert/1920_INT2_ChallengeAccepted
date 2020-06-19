@@ -37,7 +37,7 @@ class PagesController extends Controller {
     }
 
     $experiences = $this->hinderDAO->selectAllExperiencesWithFilters($userid = false, $situation, $sort);
-
+    
     if (!empty($_POST['action'])) {
       if ($_POST['action'] == 'addLike') {
         $this->addLike('hinderoverzicht');

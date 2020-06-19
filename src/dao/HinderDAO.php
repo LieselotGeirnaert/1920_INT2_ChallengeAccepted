@@ -26,11 +26,18 @@ class HinderDAO extends DAO {
   public function selectAllExperiencesWithFilters($userid = false, $situation = false, $sort = false) {
     $bindValues = array();
     
-    $sql = "SELECT `experiences`.`id`, `experiences`.`date`, `experiences`.`video`, `experiences`.`likes`, `users`.`name` AS `user_name`, `situations`.`name` AS `situation_name`, COUNT(`reviews`.`id`) AS `review_count`, AVG(`reviews`.`rating`) AS `rating_average`
+    $sql = "SELECT `experiences`.`id`, `experiences`.`date`, `experiences`.`video`, `experiences`.`likes`, `users`.`name` AS `user_name`, `situations`.`name` AS `situation_name`, `rating_average`, `review_count`
             FROM `experiences`
             INNER JOIN `users` ON `experiences`.`user_id` = `users`.`id`
             INNER JOIN `situations` ON `experiences`.`situation_id` = `situations`.`id`
-            LEFT OUTER JOIN `reviews` ON `experiences`.`id` = `reviews`.`experience_id`";
+            LEFT JOIN (SELECT `experience_id`, AVG(`rating`) AS `rating_average`
+                        FROM `reviews`
+                        GROUP BY `reviews`.`experience_id`
+                      ) AS `ratingsavg` ON `experiences`.`id` = `ratingsavg`.`experience_id`
+            LEFT JOIN (SELECT `experience_id`, COUNT(`reviews`.`id`) AS `review_count`
+                        FROM `reviews`
+                        GROUP BY `reviews`.`experience_id`
+                      ) AS `reviewcount` ON `experiences`.`id` = `reviewcount`.`experience_id`";
   
     if ($userid) {
       $sql .= " WHERE `experiences`.`user_id` = :userid";
@@ -45,8 +52,6 @@ class HinderDAO extends DAO {
       $bindValues[':situation'] = $situation;
     }
               
-    $sql .= " GROUP BY `reviews`.`experience_id`";
-
     if (!empty($sort)) {
       if ($sort == false || $sort == "recent") {
         $sql .= " ORDER BY `experiences`.`date` DESC";
