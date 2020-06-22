@@ -1,4 +1,4 @@
-.content__experience {
+.content--experience {
   padding: 10rem;
 }
 
@@ -60,9 +60,8 @@
   grid-column: 1;
   grid-row: 2 / 3;
   grid-template-columns: auto;
-  grid-template-rows: 50rem 12rem auto;
+  grid-template-rows: 50rem auto auto;
   margin-left: 5rem;
-  max-height: 80rem;
   padding: 3rem;
   transform: rotate(-3deg);
 }
@@ -78,17 +77,20 @@
 .content__title {
   color: var(--yellowColor);
   font-family: "TrashHand", Helvetica, Arial, sans-serif;
-  font-size: 4rem;
-  grid-column: 1 / 3;
+  font-size: 3.5rem;
+  grid-column: 1 / 2;
   grid-row: 2 / 3;
-  padding: 5rem 0 0 5rem;
+  padding: 5rem 5rem 3rem 5rem;
 }
 
 .content__descr {
-  font-size: 3rem;
+  align-self: center;
+  font-size: 2.5rem;
   grid-column: 1 / 3;
   grid-row: 3 /4;
-  padding-left: 5rem;
+  padding: 0 5rem;
+  overflow-wrap: break-word;
+  max-width: 75rem;
 }
 
 .content__like.experience__like {
@@ -96,7 +98,7 @@
   grid-row: 2 / 3;
 }
 
-.content__experience .experience__stats {
+.content--experience .experience__stats {
   grid-row: 1 / 2;
   margin-top: -12rem;
   position: absolute;
@@ -183,6 +185,6 @@
   grid-column: 1 / 3;
 }
 
-.content__experience .btn {
+.content--experience .btn {
   margin: 0 auto;
 }

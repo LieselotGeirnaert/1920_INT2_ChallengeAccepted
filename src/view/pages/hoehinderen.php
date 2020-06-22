@@ -1,4 +1,4 @@
-<section class="content content__how">
+<section class="content content--how">
   <h2 class="hidden">Hoe hinderen</h2>
 
   <section class="why">
@@ -36,37 +36,43 @@
       </div>
     </div>
     <div class="how__arrows">
-      <img src="assets/img/arrow-yellow.png" class="arrows__icon arrows__icon--left" alt="scroll arrow left">
-      <img src="assets/img/arrow-yellow.png" class="arrows__icon" alt="scroll arrow right">
+      <img src="assets/img/arrow-yellow.png" class="arrows__icon arrows__icon--left" alt="Scroll arrow left">
+      <img src="assets/img/arrow-yellow.png" class="arrows__icon" alt="Scroll arrow right">
     </div>
     <a href="index.php?page=hindersituaties" class="btn btn--sticker">Begin met hinderen</a>
   </section>
 
   <section class="tips">
-    <h3 class="subtitle tips__subtitle">All-in tips</h3>
+    <h3 class="subtitle subtitle--stroke">All-in tips</h3>
     <section class="tips__cocktails">
-      <h4>Cocktails tijdens het hinderen</h4>
-      <p>Met een cocktail bij de hand gaat het hinderen nog beter. Met deze 3 toppers bezorg je ook de barman een extra frustratie. Ontdek onze favorieten en geniet mee.</p>
+      <h4 class="tips__subtitle">Cocktails tijdens het hinderen</h4>
+      <p class="tips__text">Met een cocktail bij de hand gaat het hinderen nog beter. Met deze 3 toppers bezorg je ook de barman een extra frustratie. Ontdek onze favorieten en geniet mee.</p>
       <div class="cocktails__container">
         <article class="container__cocktail container__cocktail--mojito">
           <h5 class="cocktail__name">Mojito</h5>
+          <img src="assets/img/photos/cocktails-mojito.png" class="cocktail__img" alt="Mojito">
+          <img src="assets/img/photos/cocktails-mojito-doodles.png" class="cocktail__img cocktail__img--doodles" alt="Mojito">
           <p class="cocktail__descr">Wij houden wel van een beetje suiker in onze cocktail, barmannen zijn minder fan van hun plakhandjes.</p>
         </article>
         <article class="container__cocktail container__cocktail--icedtea">
           <h5 class="cocktail__name">Long island iced tea</h5>
+          <img src="assets/img/photos/cocktails-icedtea.png" class="cocktail__img" alt="Long Island Iced Tea">
+          <img src="assets/img/photos/cocktails-icedtea-doodles.png" class="cocktail__img cocktail__img--doodles" alt="Long Island Iced Tea">
           <p class="cocktail__descr">Talloze ingrediënten die allemaal precies afgemeten moeten worden, geen lachertje op een drukke dag.</p>
         </article>
         <article class="container__cocktail container__cocktail--margarita">
           <h5 class="cocktail__name">Margarita</h5>
+          <img src="assets/img/photos/cocktails-margarita.png" class="cocktail__img" alt="Margarita">
+          <img src="assets/img/photos/cocktails-margarita-doodles.png" class="cocktail__img cocktail__img--doodles" alt="Margarita">
           <p class="cocktail__descr">Geen moeilijke ingrediënten maar wel 20 seconden lang schudden, daar heeft geen enkele barman tijd voor.</p>
         </article>
       </div>
     </section>
 
     <section class="tips__music">
-      <h4>Muziekmanie</h4>
-      <p>Geniet zelf van een streepje muziek tijdens het hinderen, of gebruik de muziek om anderen te irriteren.</p>
+      <h4 class="tips__subtitle">Muziekmanie</h4>
+      <p class="tips__text">Geniet zelf van een streepje muziek tijdens het hinderen, of gebruik de muziek om anderen te irriteren.</p>
+      <iframe src="https://open.spotify.com/embed/playlist/7ngivr0VC8CzOhHO08JuRW" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media" class="how__playlist"></iframe>
     </section>
-    <a href="index.php?page=hindersituaties" class="btn btn--sticker">Begin met hinderen</a>
   </section>
 </section>

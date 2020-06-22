@@ -1,6 +1,7 @@
 <section class="content content--home">
+  <h2 class="hidden">Home</h2>
   <section class="home__intro">
-    <h2 class="intro__text">Ben jij klaar om jouw medereizigers de ultieme hinder-ervaring te bezorgen?</h2>
+    <h3 class="intro__text">Ben jij klaar om jouw medereizigers de ultieme hinder-ervaring te bezorgen?</h3>
     <p class="intro__title">Hotelhinder</p>
     <div class="intro__images">
       <img src="assets/img/photos/home-1.png" alt="Polaroidfoto van vrienden op het strand" class="intro__img intro__img--left">
@@ -10,17 +11,19 @@
     </div>
     <img src="assets/img/arrow-lightblue.svg" alt="Pijl naar beneden" class="intro__down">
   </section>
+
   <section class="imagine">
-    <h2 class="imagine__title">Stel je voor, Een wereld zonder frustraties zou toch maar saai zijn, niet?</h2>
-    <p class="imagine__text">Haal je innerlijke plaaggeest nog eens boven en maak de reiservaring van je mede-hotelgasten op jouw eigen
-      manier een beetje interessanter. Kies jouw favoriet plaag-locatie of -situatie en zet het hotel op stelten.
+    <h3 class="imagine__title">Stel je voor, Een wereld zonder frustraties zou toch maar saai zijn, niet?</h3>
+    <p class="imagine__text">Haal je innerlijke plaaggeest nog eens boven en maak de reiservaring van je mede-hotelgasten, op jouw eigen
+      manier, een beetje interessanter. Kies jouw favoriet plaag-locatie of -situatie en zet het hotel op stelten.
       Krijg jij de meeste recensies van je dankbare slachtoffers?
     </p>
     <img src="assets/img/photos/home-3.png" alt="Vrienden op het strand" class="imagine__img">
     <img src="assets/img/photos/home-3-doodles.png" alt="Vrienden op het strand met doodles" class="imagine__img imagine__img--doodles">
   </section>
+
   <section class="foryou">
-    <h2 class="foryou__title subtitle">Is de hinderwereld iets voor jou?</h2>
+    <h3 class="foryou__title subtitle">Is de hinderwereld iets voor jou?</h3>
     <div class="foryou__reasons">
       <img src="assets/img/photos/home-4.png" alt="Polaroidfoto van een vrouw op het strand" class="reasons__img reasons__img--one">
       <img src="assets/img/photos/home-5.png" alt="Polaroidfoto van een vrouw op het strand" class="reasons__img reasons__img--two">
@@ -31,12 +34,13 @@
     </div>
     <a href="index.php?page=hindersituaties" class="btn btn--sticker">Begin met hinderen</a>
   </section>
+
   <section class="spotlight">
-    <h2 class="spotlight__title subtitle">Hinderervaringen in de kijker</h2>
+    <h3 class="spotlight__title subtitle subtitle--stroke">Hinderervaringen in de kijker</h3>
     <div class="experiences-container">
       <?php foreach ($experiences as $experience): ?>
         <article class="experience">
-          <h3 class="experience__title"><?php echo $experience['situation_name']; ?></h3>
+          <h4 class="experience__title"><?php echo $experience['situation_name']; ?></h4>
           <video controls  alt="Video" class="experience__video">
             <source src="<?php echo $experience['video'] ?>" type="video/mp4">
             Your browser does not support the video tag.

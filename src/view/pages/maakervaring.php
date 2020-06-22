@@ -1,4 +1,4 @@
-<section class="content content__new">
+<section class="content content--new">
   <h2 class="hidden">Maak jouw hinderervaring</h2>
   <div class="new__header">
     <a href="index.php?page=hindersituaties" class="experience__back header__back">Terug naar alle situaties</a>

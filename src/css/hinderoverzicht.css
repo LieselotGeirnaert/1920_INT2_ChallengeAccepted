@@ -1,4 +1,8 @@
-.content__overview {
+.content--overview {
+  background-image: url(../assets/img/background/palmtree-yellow.svg),
+    url(../assets/img/background/sun-yellow.svg);
+  background-repeat: no-repeat;
+  background-position: 70vw 15vh, -25vw 200vh;
   display: flex;
   flex-direction: column;
 }

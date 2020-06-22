@@ -1,4 +1,12 @@
-.content__how {
+.content--how {
+  background-image: url(../assets/img/background/ball-red.svg),
+    url(../assets/img/background/glasses-yellow.svg),
+    url(../assets/img/background/surfboard-red.svg),
+    url(../assets/img/background/palmtree-blue.svg),
+    url(../assets/img/background/music-blue.svg),
+    url(../assets/img/background/music-blue.svg);
+  background-repeat: no-repeat;
+  background-position: 90vw -4vh, 45vw 55vh, -4vw 150vh, 70vw 200vh, 65vw 415vh, 80vw 385vh;
   padding: 0;
 }
 
@@ -54,11 +62,12 @@
 }
 
 .how__subtitle {
- margin-left: 10rem;
+  margin-left: 10rem;
 }
 
 .how__text {
- margin-left: 10rem;
+  font-size: 2.5rem;
+  margin-left: 10rem;
 }
 
 .how__scrollcontainer {
@@ -159,58 +168,85 @@
   transform: scaleX(-1);
 }
 
-.tips__subtitle::after {
-  content: "";
-  background-image: url(../assets/img/stroke.png);
+.tips {
+  margin: 10rem;
+}
+
+.tips__subtitle {
+  color: var(--yellowColor);
+  font-size: 4rem;
+  font-weight: 700;
+  padding: 5rem 0;
+  text-transform: uppercase;
+}
+
+.tips__text {
+  font-size: 2.5rem;
+  max-width: 65rem;
 }
 
 .cocktails__container {
+  display: flex;
   padding: 15rem 0rem;
 }
 
 .container__cocktail {
-  background-image: url(../assets/img/cocktail-1.png);
-  background-position: center;  
-  background-repeat: no-repeat;
-  background-size: contain;
-  display: inline-block;
-  height: 60rem;
-  position: relative;
-  width: 47rem;
-}
-
-.cocktail__name {
-  color: var(--greenColor);
-  font-family: "TrashHand", Helvetica, Arial, sans-serif;
-  font-size: 3rem;
-  position: relative;
-  text-align: center;
-  top: -5rem;
-}
-
-.cocktail__descr {
-  font-family: "TrashHand", Helvetica, Arial, sans-serif;
-  font-size: 2.5rem;
-  position: relative;
-  max-width: 35rem;
-  text-align: center;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 10rem auto 16rem;
 }
 
 .container__cocktail--mojito {
   transform: rotate(9deg);
-
-  /* & .cocktail__name {
-  transform: rotate(2deg);
-  } */
 }
 
 .container__cocktail--icedtea {
-  top: 4rem;
   transform: rotate(-11deg);
 }
 
 .container__cocktail--margarita {
   transform: rotate(6deg);
-  top: -1rem
 }
 
+.cocktail__name {
+  color: var(--greenColor);
+  font-family: "TrashHand", Helvetica, Arial, sans-serif;
+  font-size: 4rem;
+  grid-column: 1;
+  grid-row: 1 / 2;
+  text-align: center;
+}
+
+.cocktail__descr {
+  align-self: center;
+  font-family: "TrashHand", Helvetica, Arial, sans-serif;
+  font-size: 2.7rem;
+  grid-column: 1;
+  grid-row: 3 / 4;
+  justify-self: center;
+  max-width: 35rem;
+  text-align: center;
+  transform: rotate(3deg);
+
+}
+
+.cocktail__img {
+  box-shadow: var(--boxShadow);
+  grid-column: 1;
+  grid-row: 2 / 4;
+  width: 50rem;
+}
+
+.cocktail__img--doodles {
+  display: none;
+}
+
+.container__cocktail:hover .cocktail__img--doodles {
+  display: block;
+}
+
+.how__playlist {
+  height: 7.5rem;
+  margin: 10rem auto;
+  width: 50rem;
+}

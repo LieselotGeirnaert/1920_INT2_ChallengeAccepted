@@ -1,4 +1,4 @@
-<section class="content content__overview">
+<section class="content content--overview">
   <h2 class="overview__subtitle">Ontdek hoe anderen de wereld al een beetje irritanter maakten!</h2>
   <form method="get" action="index.php?page=hinderoverzicht" class="filterform">
     <input type="hidden" name="page" value="hinderoverzicht" />

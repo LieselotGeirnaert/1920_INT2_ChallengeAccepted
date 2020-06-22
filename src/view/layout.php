@@ -40,7 +40,29 @@
 
     <?php echo $content; ?>
   </main>
-
+  <footer class="footer">
+    <div class="footer__top">
+      <div>
+        <p class="footer__title">Contacteer ons</p>
+        <p>Hotelstraat 102, 9000 Gent</p>
+        <p>0412 34 56 78</p>
+        <p>info@hotelhinder.be</p>
+      </div>
+      <div>
+        <p class="footer__title">Schrijf je in voor onze nieuwsbrief</p>
+        <div class="footer__input">
+          <input type="text" class="form__input" />
+          <button class="btn btn--sticker">Inschrijven</button>
+        </div>
+      </div>
+      <div class="footer__socials">
+        <a href="https://www.facebook.com/" class="socials__icon socials__icon--facebook"><span class="hidden">Facebook</span></a>
+        <a href="https://www.instagram.com/" class="socials__icon socials__icon--instagram"><span class="hidden">Instagram</span></a>
+        <a href="https://www.twitter.com/" class="socials__icon socials__icon--twitter"><span class="hidden">Twitter</span></a>
+      </div>
+    </div>
+    <p class="footer__credits">Lieselot geirnaert - int2 - 2020</p>
+  </footer>
   <script src="js/script.js"></script>
 </body>
 </html>

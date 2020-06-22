@@ -196,19 +196,6 @@
 
 .spotlight__title {
   padding-bottom: 15rem;
-  position: relative;
-}
-
-.spotlight__title::after {
-  background-image: url(../assets/img/stroke-red.svg);
-  background-repeat: no-repeat;
-  background-size: contain;
-  content: "";
-  height: 2rem;
-  left: 0;
-  position: absolute;
-  top: 7rem;
-  width: 15rem;
 }
 
 .spotlight__buttons {

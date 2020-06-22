@@ -1,11 +1,15 @@
 .auth {
   align-items: center;
+  background-image: url(../assets/img/background/palmtree-yellow.svg),
+    url(../assets/img/background/tube-red.svg),
+    url(../assets/img/background/surfboard-blue.svg);
+  background-position: 70vw 30vh, 4vw 4vh, 27vh 16vw;
+  background-repeat: no-repeat;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin: 7rem auto;
-  width: 35vw;
+  padding: 7rem calc(65vw / 2) 25rem;
 }
 
 .auth__subtitle {

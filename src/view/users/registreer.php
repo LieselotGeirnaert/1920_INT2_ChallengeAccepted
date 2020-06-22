@@ -34,7 +34,7 @@
     </div>
 
     <div class="form__row">
-      <label class="form__label" for="registerPassword">Passwoord</label>
+      <label class="form__label" for="registerPassword">Paswoord</label>
       <div class="form__inputcontainer">
         <input
           type="password"
@@ -48,7 +48,7 @@
     </div>
 
     <div class="form__row">
-      <label class="form__label" for="registerConfirmPassword">Herhaal passwoord</label>
+      <label class="form__label" for="registerConfirmPassword">Herhaal paswoord</label>
       <div class="form__inputcontainer">
         <input
           type="password"

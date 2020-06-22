@@ -6,8 +6,8 @@
     <?php foreach($situations as $situation): ?>
       <article class="situation">
         <div class="situation__right">
-          <img src="assets/img/photos/<?php echo $situation['name']; ?>.png" alt="Afbeelding <?php echo $situation['name']; ?>" class="situation__img">
-          <img src="assets/img/photos/<?php echo $situation['name']; ?>-doodles.png" alt="Afbeelding <?php echo $situation['name']; ?>" class="situation__img situation__img--doodles">
+          <img src="assets/img/photos/<?php echo strtolower($situation['name']); ?>.png" alt="Afbeelding <?php echo $situation['name']; ?>" class="situation__img">
+          <img src="assets/img/photos/<?php echo strtolower($situation['name']); ?>-doodles.png" alt="Afbeelding <?php echo $situation['name']; ?>" class="situation__img situation__img--doodles">
           <h3 class="situation__title"><?php echo $situation['name']; ?></h3>
           <span class="situation__sticker"></span>
         </div>

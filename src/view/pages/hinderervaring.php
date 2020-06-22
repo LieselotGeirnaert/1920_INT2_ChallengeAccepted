@@ -3,7 +3,7 @@
   
 ?>
 
-<section class="content content__experience">
+<section class="content content--experience">
   <h2 class="hidden">Hinderervaring details</h2>
   <a href="index.php?page=hinderoverzicht" class="experience__back">Terug naar alle ervaringen</a>
   <div class="experience__container">
