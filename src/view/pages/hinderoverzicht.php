@@ -77,7 +77,7 @@
     <?php foreach ($experiences as $experience): ?>
       <article class="experience">
         <h3 class="experience__title"><?php echo $experience['situation_name']; ?></h3>
-        <video controls  alt="" class="experience__video">
+        <video controls  alt="Video <?php echo $experience['title'] ?>" class="experience__video">
           <source src="<?php echo $experience['video'] ?>" type="video/mp4">
           Your browser does not support the video tag.
         </video>

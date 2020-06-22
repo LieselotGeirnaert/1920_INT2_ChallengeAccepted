@@ -2,12 +2,14 @@
   <h2 class="hidden">Hoe hinderen</h2>
 
   <section class="why">
-    <h3 class="why__title">Waarom HotelHinder</h3>
     <p class="why__text">We zien het als <span class="why__text--accent">onze eigen missie om de wereld een beetje mooier te maken</span>,
         en daarvoor hebben we de hulp nodig van alle stiekeme plaaggeesten en pestkoppen, 
         jullie dus. <span class="why__text--accent">Samen kan je je mede-hotelgasten de ultieme hinder-ervaring laten
         beleven</span> en zo hun reis helemaal perfect maken.
     </p>
+    <img src="assets/img/photos/info-1.png" alt="Afbeelding waarom hotelhinder" class="why__img">
+    <img src="assets/img/photos/info-1-doodles.png" alt="Afbeelding waarom hotelhinder" class="why__img why__img--doodles">
+    <h3 class="why__title">Waarom HotelHinder</h3>
   </section>
 
   <section class="how">

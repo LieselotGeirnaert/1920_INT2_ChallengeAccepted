@@ -5,11 +5,10 @@
     <div class="header__info">
       <p class="info__name"><?php echo $userinfo['name']; ?></p>
       <p class="info__email"><?php echo $userinfo['email']; ?></p>
-      <div class="info__stats">
-        <span class="stats__item stats__item--experiences"><?php echo $userinfo['likes_count']; ?></span>
-        <span class="stats__item stats__item--likes"><?php echo $userinfo['experiences_count']; ?></span>
-        <span class="stats__item stats__item--reviews"><?php echo $userinfo['experiences_count']; ?></span>
-      </div>
+    </div>
+    <div class="header__stats">
+      <span class="stats__item stats__item--likes"><?php echo $userinfo['experiences_count']; ?></span>
+      <span class="stats__item stats__item--experiences"><?php echo $userinfo['likes_count']; ?></span>
     </div>
     <a href="index.php?page=logout" class="header__logout">Afmelden</a>
   </section>

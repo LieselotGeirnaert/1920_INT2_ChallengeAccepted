@@ -16,12 +16,30 @@
   width: 65rem;
 }
 
+.situations__slider {
+  margin-top: 10rem;
+}
+
 .situation {
   align-items: center;
   display: flex;
   justify-content: space-between;
   margin: 0rem auto;
   width: 65vw;
+}
+
+.situation__sticker {
+  background-image: url(../assets/img/btn-red.png);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  grid-column: 1;
+  grid-row: 1;
+  height: 10rem;
+  justify-self: center;
+  margin-top: -5rem;
+  transform: rotate(-5deg);
+  width: 25rem;
 }
 
 .situation:nth-child(odd) {
@@ -32,13 +50,21 @@
   flex-direction: row-reverse;
 }
 
+.situation__right {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: 45rem auto;
+  transform: rotate(4deg);
+}
+
 .situation__title {
+  align-self: center;
   color: var(--lightblueColor);
   font-family: "TrashHand", Helvetica, Arial, sans-serif;
   font-size: 5rem;
-  left: 15rem;
-  position: relative;
-  top: 60rem;
+  grid-column: 1;
+  grid-row: 2 / 3;
+  justify-self: center;
 }
 
 .situation__descr {
@@ -48,7 +74,17 @@
 }
 
 .situation__img {
-  width: 60rem;
+  grid-column: 1;
+  grid-row: 1 / 3;
+  width: 50rem;
+}
+
+.situation__img--doodles {
+  display: none;
+}
+
+.situation__right:hover .situation__img--doodles {
+  display: block;
 }
 
 .slider__control {

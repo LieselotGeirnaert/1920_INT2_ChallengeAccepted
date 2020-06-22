@@ -1,0 +1,41 @@
+.form__rating:not(old) {
+  display: flex;
+  height: 3rem;
+  margin: 2rem 0;
+  overflow: hidden;
+  transform: scaleX(-1);
+  vertical-align: bottom;
+  width: 18rem;
+}
+
+.form__rating:not(old) > input {
+  display: none
+}
+
+.form__rating:not(old) > label {
+  background: url(../../assets/img/icon-rating-outline.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: block;
+  margin-left: 0.5rem;
+  position: relative;
+  
+}
+
+.form__rating:not(old) > label:before {
+  background: url(../../assets/img/icon-rating-full.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  content: '';
+  display: block;
+  height: 3rem;
+  opacity: 0;
+  transition: opacity 0.2s linear;
+  width: 3rem;
+}
+
+.form__rating:not(old) > label:hover:before,
+.form__rating:not(old) > label:hover ~ label:before,
+.form__rating:not(:hover) > :checked ~ label:before {
+  opacity: 1;
+}

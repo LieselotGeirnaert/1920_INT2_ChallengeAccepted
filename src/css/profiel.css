@@ -3,9 +3,9 @@
 }
 
 .profile__header {
-  column-gap: 10rem;
+  column-gap: 2rem;
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 1fr 10rem 2fr;
   grid-template-rows: auto;
   margin-bottom: 15rem;
 }
@@ -28,8 +28,10 @@
   padding-bottom: 3rem;
 }
 
-.info__stats {
+.header__stats {
   display: flex;
+  flex-direction: column;
+  grid-column: 2 / 3;
   justify-content: space-between;
   width: 45rem;
 }
@@ -39,11 +41,13 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
-  /* color: var(--beigeColor); */
+  color: var(--beigeColor);
   font-family: "TrashHand", Helvetica, Arial, sans-serif;
   font-size: 4.5rem;
+  height: 7rem;
+  padding-left: 6rem;
   position: relative;
-  width: 13rem;
+  width: 12rem;
 }
 
 .stats__item::before {
@@ -51,14 +55,14 @@
   background-repeat: no-repeat;
   content: "";
   display: inline-block;
-  height: 4rem;;
+  height: 6rem;;
   position: absolute;
-  right: 2rem;
+  right: 7rem;
   width: 4rem;
 }
 
 .stats__item--experiences::before {
-  background-image: url(../assets/img/icon-likes.svg);
+  background-image: url(../assets/img/icon-trophy.svg);
 }
 
 .stats__item--likes::before {
@@ -71,9 +75,9 @@
 
 .header__logout {
   color: var(--textColor);
-  grid-column: 2 / 3;
-  grid-row: 1 / 2;
-  justify-self: center;
+  grid-column: 3 / 4;
+  justify-self: flex-end;
+  padding-right: 10rem;
   position: relative;
 }
 

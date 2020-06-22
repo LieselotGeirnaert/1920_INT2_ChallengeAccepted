@@ -1,5 +1,6 @@
 <?php
   $id = $_GET['id'];
+  
 ?>
 
 <section class="content content__experience">
@@ -9,7 +10,7 @@
     <div class="experience__info">
       <p class="info__situation"><?php echo $experience['situation_name']; ?></p>
       <p class="info__user"><?php echo $experience['user_name']; ?></p>
-      <p class="info__time">2 uur geleden</p>
+      <p class="info__time"><?php echo date("j F Y", strtotime($experience['date'])); ?></p>
     </div>
   
     <section class="experience__reviews">
@@ -29,17 +30,17 @@
             <p class="review__name"><?php echo $review['name']; ?></p>
             <span>
                <?php for ($i = 0; $i < $review['rating']; $i++): ?>
-                  <img src="assets/img/icon-rating-full.svg" alt="Star icon">
+                  <img src="assets/img/icon-rating-full.svg" alt="Ster icoon">
                <?php endfor; ?>
                <?php for ($i = 0; $i < 5 - $review['rating']; $i++): ?>
-                  <img src="assets/img/icon-rating-outline.svg" alt="Star icon">
+                  <img src="assets/img/icon-rating-outline.svg" alt="Ster icoon">
                <?php endfor; ?>
             </span>
             <p class="review__review"><?php echo $review['review']; ?></p>
           </div>
         <?php endforeach; ?>
       </div>
-      <div class="review__form">
+      <div class="reviews__form">
         <p class="reviews__title">Nieuwe recensie</p>
         <?php if (empty($_SESSION['user'])): ?>
           <p>Je moet aangemeld zijn om een recensie te plaatsen</p>
@@ -52,22 +53,17 @@
 
           <div class="form__row">
             <label for="rating" class="form__label">Aantal sterren</label>
-            <div class="form__inputcontainer">
-              <label for="one">
-                <input type="radio" id="one" name="rating" value="1">
-              </label>
-              <label for="two">
-                <input type="radio" id="two" name="rating" value="2">
-              </label>
-              <label for="three">
-                <input type="radio" id="three" name="rating" value="3">
-              </label>
-              <label for="four">
-                <input type="radio" id="four" name="rating" value="4">
-              </label>
-              <label for="five">
-                <input type="radio" id="five" name="rating" value="5">
-              </label>
+            <div class="form__inputcontainer form__rating">
+              <input id="rating5" type="radio" name="rating" value="5">
+              <label for="rating5">5</label>
+              <input id="rating4" type="radio" name="rating" value="4">
+              <label for="rating4">4</label>
+              <input id="rating3" type="radio" name="rating" value="3">
+              <label for="rating3">3</label>
+              <input id="rating2" type="radio" name="rating" value="2">
+              <label for="rating2">2</label>
+              <input id="rating1" type="radio" name="rating" value="1">
+              <label for="rating1">1</label>
               <?php if(!empty($errors['rating'])) echo '<div class="form__error">' . $errors['rating'] . '</div>'; ?>
             </div>
           </div>
@@ -92,7 +88,7 @@
 
     <section class="experience__content">
       <h3 class="hidden">Video</h3>
-      <video controls  alt="" class="content__video">
+      <video controls  alt="Video <?php echo $experience['title'] ?>" class="content__video">
         <source src="<?php echo $experience['video'] ?>" type="video/mp4">
         Your browser does not support the video tag.
       </video>
