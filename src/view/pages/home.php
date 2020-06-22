@@ -45,7 +45,7 @@
             <source src="<?php echo $experience['video'] ?>" type="video/mp4">
             Your browser does not support the video tag.
           </video>
-          <form method="post" action="index.php?page=hinderoverzicht" class="experience__like">
+          <form method="post" action="index.php?page=home" class="experience__like">
             <input type="hidden" name="likes" value="<?php echo $experience['likes'] ?>">
             <input type="hidden" name="experience_id" value="<?php echo $experience['id'] ?>">
             <input type="hidden" name="action" value="addLike">

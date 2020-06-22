@@ -1,6 +1,6 @@
 <section class="content content--overview">
   <h2 class="overview__subtitle">Ontdek hoe anderen de wereld al een beetje irritanter maakten!</h2>
-  <form method="get" action="index.php?page=hinderoverzicht" class="filterform">
+  <form method="get" action="index.php" class="filterform">
     <input type="hidden" name="page" value="hinderoverzicht" />
     <label for="situation" class="filterform__filter">
       <span class="filter__label">Situatie:</span>
@@ -63,7 +63,7 @@
       </select>
     </label>
 
-    <button type="submit" class="btn btn--sticker">Toepassen</button>
+    <button type="submit" class="btn btn--sticker btn--filter">Toepassen</button>
   </form>
 
   <div class="experiences-container">

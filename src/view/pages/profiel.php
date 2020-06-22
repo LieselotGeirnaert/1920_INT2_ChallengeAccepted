@@ -7,15 +7,15 @@
       <p class="info__email"><?php echo $userinfo['email']; ?></p>
     </div>
     <div class="header__stats">
-      <span class="stats__item stats__item--likes"><?php echo $userinfo['experiences_count']; ?></span>
-      <span class="stats__item stats__item--experiences"><?php echo $userinfo['likes_count']; ?></span>
+      <span class="stats__item stats__item--likes"><?php echo (int)$userinfo['experiences_count']; ?></span>
+      <span class="stats__item stats__item--experiences"><?php echo (int)$userinfo['likes_count']; ?></span>
     </div>
     <a href="index.php?page=logout" class="header__logout">Afmelden</a>
   </section>
   
   <section>
     <h3 class="hidden">Hinderervaringen</h3>
-    <form method="get" action="index.php?page=profiel" class="filterform">
+    <form method="get" action="index.php" class="filterform">
       <input type="hidden" name="page" value="profiel" />
       <label for="situation" class="filterform__filter">
         <span class="filter__label">Situatie:</span>
@@ -78,7 +78,7 @@
         </select>
       </label>
 
-      <button type="submit" class="btn btn--sticker">Toepassen</button>
+      <button type="submit" class="btn btn--sticker btn--filter">Toepassen</button>
     </form>
 
     <div class="experiences-container">

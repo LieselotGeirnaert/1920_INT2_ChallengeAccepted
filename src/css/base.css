@@ -119,10 +119,9 @@ main {
   display: flex;
   flex-direction: column;
   padding: 5rem 10rem;
-
 }
+
 .footer__top {
- 
   display: flex;
   justify-content: space-between;
 }
@@ -260,6 +259,10 @@ main {
   position: absolute;
   top: 3.4rem;
   width: 100%;
+}
+
+.has-js .btn--filter {
+  display: none;
 }
 
 /* content */

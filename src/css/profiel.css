@@ -1,5 +1,7 @@
-.profile {
-  padding: 10rem 15rem;
+.content--profile {
+  background-image: url(../assets/img/background/sun-yellow.svg);
+  background-repeat: no-repeat;
+  background-position: 50vw -6vh;
 }
 
 .profile__header {

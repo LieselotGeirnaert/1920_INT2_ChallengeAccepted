@@ -14,6 +14,12 @@ class PagesController extends Controller {
   public function home() {
     $experiences = $this->hinderDAO->selectAllExperiencesWithFilters(false, false, false, 3);
     
+    if (!empty($_POST['action'])) {
+      if ($_POST['action'] == 'addLike') {
+        $this->addLike('home');
+      }
+    }
+
     $this->set('experiences', $experiences);
     $this->set('title', 'Home');
   }
@@ -45,6 +51,11 @@ class PagesController extends Controller {
       if ($_POST['action'] == 'addLike') {
         $this->addLike('hinderoverzicht');
       }
+    }
+
+    if ($_SERVER['HTTP_ACCEPT'] == 'application/json') {
+      echo json_encode($experiences);
+      exit();
     }
 
     $this->set('situations', $situations);
@@ -106,6 +117,11 @@ class PagesController extends Controller {
         }
       }
 
+      if ($_SERVER['HTTP_ACCEPT'] == 'application/json') {
+        echo json_encode($experiences);
+        exit();
+      }
+      
       $this->set('userinfo', $userinfo);
       $this->set('situations', $situations);
       $this->set('experiences', $experiences);
