@@ -9,4 +9,6 @@
     --shadowColor: #E3DBC8;
     --whiteColor: #FFFFFF;
     --beigeColor: #F8F1E1;
+
+    --boxShadow: 0 1rem 1.5rem var(--shadowColor);
 }

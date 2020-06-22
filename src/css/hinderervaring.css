@@ -55,7 +55,7 @@
 
 .experience__content {
   background-color: var(--whiteColor);
-  box-shadow: 0 1rem 1.5rem var(--shadowColor);
+  box-shadow: var(--boxShadow);
   display: grid;
   grid-column: 1;
   grid-row: 2 / 3;
@@ -104,7 +104,7 @@
 
 .experience__reviews {
   background-color: var(--whiteColor);
-  box-shadow: 0 1rem 1.5rem var(--shadowColor);
+  box-shadow: var(--boxShadow);
   display: flex;
   flex-direction: column;
   grid-column: 2;

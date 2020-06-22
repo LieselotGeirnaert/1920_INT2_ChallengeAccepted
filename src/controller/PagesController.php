@@ -12,6 +12,9 @@ class PagesController extends Controller {
 
   // pages
   public function home() {
+    $experiences = $this->hinderDAO->selectAllExperiencesWithFilters(false, false, false, 3);
+    
+    $this->set('experiences', $experiences);
     $this->set('title', 'Home');
   }
 

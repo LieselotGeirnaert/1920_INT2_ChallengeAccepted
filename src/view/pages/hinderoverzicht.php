@@ -77,7 +77,7 @@
     <?php foreach ($experiences as $experience): ?>
       <article class="experience">
         <h3 class="experience__title"><?php echo $experience['situation_name']; ?></h3>
-        <video controls  alt="Video <?php echo $experience['title'] ?>" class="experience__video">
+        <video controls  alt="Video" class="experience__video">
           <source src="<?php echo $experience['video'] ?>" type="video/mp4">
           Your browser does not support the video tag.
         </video>
@@ -94,7 +94,7 @@
         </div>
         <div class="experience__details">
           <p class="experience__user"><?php echo $experience['user_name']; ?></p>
-          <p class="experience__time">2 uur geleden</p>
+          <p class="experience__time"><?php echo date("j F Y", strtotime($experience['date'])); ?></p>
         </div>
         <a href="index.php?page=hinderervaring&id=<?php echo $experience['id']; ?>" class="experience__link"><span class="hidden">Details</span></a>
       </article>

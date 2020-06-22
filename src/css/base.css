@@ -115,8 +115,7 @@ main {
 /* titles */
 .subtitle {
   color: var(--redColor);
-  font-family: futura-pt, sans-serif;
-  font-size: 3rem;
+  font-size: 5rem;
   font-weight: 700;
   padding-bottom: 2rem;
   text-transform: uppercase;
@@ -131,7 +130,7 @@ main {
   border: none;
   cursor: pointer;
   display: block;
-  font-size: 1.6rem;
+  font-size: 2rem;
   font-weight: 700;
   text-align: center;
   text-decoration: none;
@@ -156,7 +155,7 @@ main {
   background-repeat: no-repeat;
   content: "";
   display: block;
-  height: 5rem;
+  height: 6rem;
   left: 0rem;
   position: absolute;
   top: 3.4rem;

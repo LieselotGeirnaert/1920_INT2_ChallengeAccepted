@@ -24,7 +24,7 @@
 
 .form__fileupload {
   background-color: var(--whiteColor);
-  box-shadow: 0 1rem 1.5rem var(--shadowColor);
+  box-shadow: var(--boxShadow);
   display: grid;
   grid-template-columns: auto;
   grid-template-rows: 50rem auto;

@@ -23,7 +23,7 @@ class HinderDAO extends DAO {
     return $stmt->fetch(PDO::FETCH_ASSOC);
   }
 
-  public function selectAllExperiencesWithFilters($userid = false, $situation = false, $sort = false) {
+  public function selectAllExperiencesWithFilters($userid = false, $situation = false, $sort = false, $limit = false) {
     $bindValues = array();
     
     $sql = "SELECT `experiences`.`id`, `experiences`.`date`, `experiences`.`video`, `experiences`.`likes`, `users`.`name` AS `user_name`, `situations`.`name` AS `situation_name`, `rating_average`, `review_count`
@@ -66,6 +66,11 @@ class HinderDAO extends DAO {
       $sql .= " ORDER BY `experiences`.`date` DESC";
     }
   
+    if (!empty($limit)) {
+      $sql .= " LIMIT :limit";
+      $bindValues[':limit'] = $limit;
+    }
+    
     $stmt = $this->pdo->prepare($sql);
     $stmt->execute($bindValues);
     

@@ -112,7 +112,7 @@
           </div>
           <div class="experience__details">
             <p class="experience__user"><?php echo $experience['user_name']; ?></p>
-            <p class="experience__time">2 uur geleden</p>
+            <p class="experience__time"><?php echo date("j F Y", strtotime($experience['date'])); ?></p>
           </div>
           <a href="index.php?page=hinderervaring&id=<?php echo $experience['id']; ?>" class="experience__link"><span class="hidden">Details</span></a>
         </article>

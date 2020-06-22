@@ -74,6 +74,7 @@
 }
 
 .situation__img {
+  box-shadow: var(--boxShadow);
   grid-column: 1;
   grid-row: 1 / 3;
   width: 50rem;
