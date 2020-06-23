@@ -11,9 +11,9 @@
     <div class="form__left">
       <label class="form__fileupload">
         <span class="fileupload__button"></span>
-        <input type="file" id="video" name="video" accept="video/mp4, video/quicktime" class="fileupload__hidden">
+        <input type="file" id="video" name="video" accept="video/mp4, video/quicktime" class="fileupload__hidden form__input" required>
         <span class="fileupload__title"><?php echo $situation['name'] ?></span>
-        <?php if(!empty($errors['video'])) echo '<div class="form__error">' . $errors['video'] . '</div>'; ?>
+        <span class="form__error"><?php if(!empty($errors['video'])) echo $errors['video']; ?></span>
       </label>
     </div>
     <div class="form__right">
@@ -26,8 +26,9 @@
             name="title"
             placeholder="Geef jouw ervaring een titel..."
             value="<?php if(!empty($_POST['title'])) echo $_POST['title'];?>"
+            required
           />
-          <?php if(!empty($errors['title'])) echo '<div class="form__error">' . $errors['title'] . '</div>'; ?>
+        <span class="form__error"><?php if(!empty($errors['title'])) echo $errors['title']; ?></span>
         </div>
       </div>
 

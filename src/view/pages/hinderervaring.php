@@ -64,7 +64,7 @@
               <label for="rating2">2</label>
               <input id="rating1" type="radio" name="rating" value="1">
               <label for="rating1">1</label>
-              <?php if(!empty($errors['rating'])) echo '<div class="form__error">' . $errors['rating'] . '</div>'; ?>
+              <span class="form__error"><?php if(!empty($errors['rating'])) echo $errors['rating']; ?></span>
             </div>
           </div>
           <div class="form__row">
@@ -76,8 +76,9 @@
                 name="review"
                 placeholder="Wat vond je van deze ervaring?"
                 value="<?php if(!empty($_POST['review'])) echo $_POST['review'];?>"
+                required
               />
-              <?php if(!empty($errors['review'])) echo '<div class="form__error">' . $errors['review'] . '</div>'; ?>
+              <span class="form__error"><?php if(!empty($errors['review'])) echo $errors['review']; ?></span>
             </div>
           </div>
           <button type="submit" class="btn btn--sticker">Recensie plaatsen</button>
@@ -88,7 +89,7 @@
 
     <section class="experience__content">
       <h3 class="hidden">Video</h3>
-      <video controls  alt="Video <?php echo $experience['title'] ?>" class="content__video">
+      <video controls class="content__video">
         <source src="<?php echo $experience['video'] ?>" type="video/mp4">
         Your browser does not support the video tag.
       </video>

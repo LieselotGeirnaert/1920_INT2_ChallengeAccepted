@@ -51,7 +51,7 @@
       return `
         <article class="experience">
           <h3 class="experience__title">${experience.situation_name}</h3>
-          <video controls  alt="Video" class="experience__video">
+          <video controls class="experience__video">
             <source src="${experience.video}" type="video/mp4">
             Your browser does not support the video tag.
           </video>

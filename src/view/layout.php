@@ -64,5 +64,6 @@
     <p class="footer__credits">Lieselot geirnaert - int2 - 2020</p>
   </footer>
   <script src="js/script.js"></script>
+  <script src="js/validate.js"></script>
 </body>
 </html>

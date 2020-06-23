@@ -4,50 +4,50 @@
     if (!$form.checkValidity()) {
       e.preventDefault();
 
-      const fields = $form.querySelectorAll(`.input`);
+      const fields = $form.querySelectorAll(`.form__input`);
       fields.forEach(showValidationInfo);
 
-      //$form.querySelector(`.error`).innerHTML = `Some errors occured`;
     } else {
       console.log(`Form is valid => submit form`);
     }
   };
 
   const showValidationInfo = $field => {
+    console.log($field);
     let message;
     if ($field.validity.valueMissing) {
-      message = `Veld is verplicht`;
+      message = `Dit veld is verplicht`;
     }
     if ($field.validity.typeMismatch) {
-      message = `Type not right`;
+      message = `Er wordt een ${showTypeMismatch($input.getAttribute(`type`))} verwacht`;
     }
     if ($field.validity.rangeOverflow) {
       const max = $field.getAttribute(`max`);
-      message = `Too big, max ${max}`;
+      message = `Te groot, maximum ${max}`;
     }
     if ($field.validity.rangeUnderflow) {
       const min = $field.getAttribute(`min`);
-      message = `Too small, min ${min}`;
+      message = `Te klein, minimum ${min}`;
     }
     if ($field.validity.tooShort) {
       const min = $field.getAttribute(`minlength`);
-      message = `Too short, minimum length is ${ min }`;
+      message = `Te kort, minimum lengte is ${ min }`;
     }
     if ($field.validity.tooLong) {
       const max = $field.getAttribute(`maxlength`);
-      message = `Too long, maximum length is ${ max }`;
+      message = `Te lang, maximum lengte is ${ max }`;
     }
     if (message) {
-      $field.parentElement.querySelector(`.error`).textContent = message;
+      $field.parentElement.querySelector(`.form__error`).textContent = message;
     }
   };
 
   const handeInputField = e => {
     const $field = e.currentTarget;
     if ($field.checkValidity()) {
-      $field.parentElement.querySelector(`.error`).textContent = ``;
+      $field.parentElement.querySelector(`.form__error`).textContent = ``;
       if ($field.form.checkValidity()) {
-        $field.form.querySelector(`.error`).innerHTML = ``;
+        $field.form.querySelector(`.form__error`).innerHTML = ``;
       }
     }
   };
@@ -65,12 +65,13 @@
   };
 
   const init = () => {
-    const $form = document.querySelector(`form`);
+    const $form = document.querySelector(`.new__form`);
     $form.noValidate = true;
     $form.addEventListener(`submit`, handleSubmitForm);
 
     const fields = $form.querySelectorAll(`.input`);
     addValidationListeners(fields);
+
   };
 
   init();
